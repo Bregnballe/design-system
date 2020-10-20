@@ -8,31 +8,35 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    //backgroundColor: { control: 'color' },
+    importance: { control: 'select'}
   },
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => {
 
-export const Primary = Template.bind({});
+ console.log("Template: " + args)
+
+ return <Button {...args} />;
+}
+
+
+
+
+export const Primary = Template.bind({}); //Template.bind({}) makes a copy of the function
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  importance: 'primary',
+  label: 'Primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  importance: 'secondary',
+  label: 'Secondary',
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  importance: 'tertiary',
+  label: 'Tertiary',
 };

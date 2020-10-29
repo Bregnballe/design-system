@@ -1,6 +1,6 @@
 import React from 'react';
-import { ButtonStyled } from './Button.styles';
-import { ButtonProps } from './Button.interface';
+import { LinkStyled } from './Link.styles';
+import { LinkProps } from './Link.interface';
 
 
   /*########### CLICK ###########*/
@@ -16,10 +16,10 @@ const handleClick = () => {
 
 
   /*########### COMPONENT ###########*/
-export const Button: React.FC<ButtonProps> = ({...props}) => {
+export const Link: React.FC<LinkProps> = ({...props}) => {
   return (
-    <ButtonStyled {...props} onClick={handleClick} onMouseDown={handleMouseDown}>
+    <LinkStyled href="#" {...props} onClick={handleClick} onMouseDown={handleMouseDown}>
       {props.label}
-    </ButtonStyled>
+    </LinkStyled>
   );
 };

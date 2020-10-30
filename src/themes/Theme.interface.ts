@@ -4,7 +4,9 @@ export interface ThemeProps {
       secondary: String,
       tertiary: String
     },
+    bodyText: String,
     borderRadius: String,
-    bodyText: String
+    borderWidth: String,
+    shadowWidth: String
   };
   

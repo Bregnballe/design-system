@@ -6,7 +6,9 @@ export const DefaultTheme:ThemeProps = {
       secondary: "#f2f2f2",
       tertiary: "transparent"
     },
+    bodyText: "1rem",
     borderRadius: "4px",
-    bodyText: "14px"
+    borderWidth: "2px",
+    shadowWidth: "2px"
   };
   

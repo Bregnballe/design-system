@@ -1,82 +1,97 @@
 import styled, {css} from "styled-components";
 import { ButtonProps } from './Button.interface';
-import { darken } from 'polished'
+import { mix } from 'polished'
 
 export const ButtonStyled = styled.button<ButtonProps>`
 
+
+/*########### DEFAULT ###########*/
 display: inline-block;
 cursor: pointer;
 user-select: none;
-border: none;
+border-style: solid;
+padding: 1em;
 font-weight: 500;
 border-radius: ${props => props.theme.borderRadius};
+
 &:focus {
     box-shadow:  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${props => props.theme.colors.primary};
     outline: none;
 }
+&:active {
+    padding-top: calc(1em + ${props => props.theme.shadowWidth});
+    padding-bottom: calc(1em - ${props => props.theme.shadowWidth});
+}
 
-${({theme: {colors}, ...props}) =>
+
+
+/*########### COLOR ########### */
+${({theme: {colors, shadowWidth}, ...props}) =>
     props.color === 'primary' ? 
     css`
         background-color: ${colors.primary};
-        border: 2px solid ${darken(0.1, colors.primary)};
-        box-shadow: inset 0px -2px 0px 0px ${darken(0.1, colors.primary)};
+        border-color: ${mix(0.2, "black", colors.primary)};
+        box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)};
         color: white;
         &:hover {
-            background-color: ${darken(0.05, colors.primary)};
+            background-color: ${mix(0.05, "black", colors.primary)};
         }
         &:active {
-            box-shadow: inset 0px 2px 0px 0px ${darken(0.1, colors.primary)};
+            box-shadow: inset 0px ${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)};
         }
     `
     : props.color === 'secondary' ?
     css`
         background-color: ${colors.secondary};
-        border: 2px solid ${darken(0.1, colors.secondary)};
-        box-shadow: inset 0px -2px 0px 0px ${darken(0.1, colors.secondary)};
+        border-color: ${mix(0.2, "black", colors.secondary)};
+        box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)};
         color: ${colors.primary};
         &:hover {
-            background-color: ${darken(0.05, colors.secondary)};
+            background-color: ${mix(0.05, "black", colors.secondary)};
         }
         &:active {
-            box-shadow: inset 0px 2px 0px 0px ${darken(0.1, colors.secondary)};
+            box-shadow: inset 0px ${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)};
         }
     ` 
     :
     css`
         background-color: ${colors.tertiary};
-        border: 2px solid transparent;
+        border-color: ${colors.tertiary};
         color: ${colors.primary};
+        border-style: none;
     `
 }
 
-${({theme: {bodyText}, ...props}) =>
+
+/*########### SIZE ###########*/
+${({theme: {colors, borderRadius, borderWidth, shadowWidth}, ...props}) =>
     props.size === 'large' ? 
     css`
-        font-size: 24px;
-        padding: 24px;
-        border-width: 4px;
-        border-radius: 8px;
+        font-size: 2rem;
+        border-width: calc(${borderWidth}*2);
+        border-radius: calc(${borderRadius}*2);
+        box-shadow: inset 0px -calc(${shadowWidth}*2) 0px 0px ${mix(0.2, "black", colors[props.color])}; //ex: props.theme.colors["primary"]
+        &:active {
+            box-shadow: inset 0px calc(${shadowWidth}*2) 0px 0px ${mix(0.2, "black", colors[props.color])};
+        }
     `
     : props.size === 'medium' ?
     css`
-        font-size: 16px;
-        padding: 16px;
-        border-width: 3px;
-        border-radius: 6px;
+        font-size: 1.5rem;
+        border-width: calc(${borderWidth}*1.5);
+        border-radius: calc(${borderRadius}*1.5);
+        box-shadow: inset 0px -calc(${shadowWidth}*1.5) 0px 0px ${mix(0.2, "black", colors[props.color])}; //ex: props.theme.colors["primary"]
+        &:active {
+            box-shadow: inset 0px calc(${shadowWidth}*1.5) 0px 0px ${mix(0.2, "black", colors[props.color])};
+        }
     ` 
     : 
     css `
-        font-size: ${bodyText};
-        padding: 12px;
+        font-size: 1rem;
+        border-width: ${borderWidth};
     `    
 }
 
-
-
-
-    
-    
 `;
 
 /*

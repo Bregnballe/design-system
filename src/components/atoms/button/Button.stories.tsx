@@ -26,16 +26,19 @@ export const Primary = Template.bind({}); //Template.bind({}) makes a copy of th
 Primary.args = {
   color: 'primary',
   label: 'Primary',
+  size: 'small'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   color: 'secondary',
   label: 'Secondary',
+  size: 'small'
 };
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
   color: 'tertiary',
   label: 'Tertiary',
+  size: 'small'
 };

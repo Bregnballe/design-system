@@ -7,7 +7,10 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
     & > button {
         position: relative;
         margin: 0;
-        border-radius: 0px;
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
     
         &:focus {
             z-index: 1;
@@ -22,16 +25,19 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
         flex-direction: column;
         
         & > button {
-
-            border-width: 2px 2px 0px 2px;
-
+            
+            &:not(:last-child) {
+                border-bottom-width: 0;
+            }
+            
             &:first-child {
-                border-radius: ${borderRadius} ${borderRadius} 0px 0px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
         
             &:last-child {
-                border-radius: 0px 0px ${borderRadius} ${borderRadius};
-                border-width: 2px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
         }
     `
     :
@@ -39,15 +45,19 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
         flex-direction: row;
 
         & > button {
-            border-width: 2px 0px 2px 2px;
+
+            &:not(:last-child) {
+                border-right-width: 0;
+            }
 
             &:first-child {
-                border-radius:${borderRadius} 0px 0px ${borderRadius};
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
             }
         
             &:last-child {
-                border-radius: 0px ${borderRadius} ${borderRadius} 0px;
-                border-width: 2px;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
         }
     }
     

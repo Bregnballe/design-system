@@ -14,13 +14,13 @@ padding: 1em;
 font-weight: 500;
 border-radius: ${props => props.theme.borderRadius};
 
-&:focus {
-    box-shadow:  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${props => props.theme.colors.primary};
-    outline: none;
-}
+
 &:active {
     padding-top: calc(1em + ${props => props.theme.shadowWidth});
     padding-bottom: calc(1em - ${props => props.theme.shadowWidth});
+}
+&:focus {
+    outline: none; 
 }
 
 
@@ -34,10 +34,14 @@ ${({theme: {colors, shadowWidth}, ...props}) =>
         box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)};
         color: white;
         &:hover {
-            background-color: ${mix(0.05, "black", colors.primary)};
+            background-color: ${mix(0.05, "white", colors.primary)};
         }
         &:active {
+            background-color: ${mix(0.05, "black", colors.primary)};
             box-shadow: inset 0px ${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)};
+        }
+        &:focus {
+            box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)},  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
         }
     `
     : props.color === 'secondary' ?
@@ -47,18 +51,25 @@ ${({theme: {colors, shadowWidth}, ...props}) =>
         box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)};
         color: ${colors.primary};
         &:hover {
-            background-color: ${mix(0.05, "black", colors.secondary)};
+            background-color: ${mix(0.05, "white", colors.secondary)};
         }
         &:active {
+            background-color: ${mix(0.05, "black", colors.secondary)};
             box-shadow: inset 0px ${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)};
         }
+        &:focus {
+            box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)},  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+        }
+}
     ` 
     :
     css`
         background-color: ${colors.tertiary};
         border-color: ${colors.tertiary};
         color: ${colors.primary};
-        border-style: none;
+        &:focus {
+            box-shadow:  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+        }
     `
 }
 

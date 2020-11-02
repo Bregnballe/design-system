@@ -10,7 +10,7 @@ export default {
   component: Button,
   argTypes: {
     //backgroundColor: { control: 'color' },
-    color: { control: 'select'},
+    color: { control: 'select'}
   },
 decorators:  [(Story) => <Story/>]
 } as Meta;
@@ -26,7 +26,7 @@ export const Primary = Template.bind({}); //Template.bind({}) makes a copy of th
 Primary.args = {
   color: 'primary',
   label: 'Primary',
-  size: 'small'
+  size: 'small',
 };
 
 export const Secondary = Template.bind({});

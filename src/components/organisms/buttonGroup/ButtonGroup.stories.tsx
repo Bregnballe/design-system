@@ -23,8 +23,8 @@ decorators:  [(Story) => <Story/>]
 
 const ButtonGroupTemplate = ({ items, ...args }) => (
   <ButtonGroup {...args}>
-    {items.map((item) => (
-      <Button {...item} />
+    {items.map((item, i) => (
+      <Button {...item} key={i}/>
     ))}
   </ButtonGroup>
 );

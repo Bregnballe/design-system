@@ -19,7 +19,7 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
 
 
 
-    ${({theme: {borderRadius}, ...props}) =>
+    ${props =>
     props.direction === 'vertical' ? 
     css`
         flex-direction: column;
@@ -28,6 +28,10 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
             
             &:not(:last-child) {
                 border-bottom-width: 0;
+                
+                &:not(:active):not(:focus) {
+                    box-shadow: none; //removing boxshadow on top items when not active or focused      
+                }
             }
             
             &:first-child {

@@ -4,8 +4,6 @@ import { Meta } from '@storybook/react/types-6-0';
 
 import { ButtonGroup } from './ButtonGroup';
 import { Button } from '../../atoms/button/Button';
-//import { ButtonGroupProps } from './ButtonGroup.interface';
-//import { ButtonProps } from '../../atoms/button/Button.interface';
 import { Secondary } from '../../atoms/button/Button.stories'
 
 
@@ -31,7 +29,3 @@ const ButtonGroupTemplate = ({ items, ...args }) => (
 
 export const ThreeItems = ButtonGroupTemplate.bind({});
 ThreeItems.args = { items: [Secondary.args, Secondary.args, Secondary.args] };
-
-export const OneItem = ButtonGroupTemplate.bind({});
-OneItem.args = { items: [Secondary.args] };
-

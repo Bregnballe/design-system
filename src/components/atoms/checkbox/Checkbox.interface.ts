@@ -1,7 +1,7 @@
-export interface ButtonProps {
-    color?: 'primary' | 'secondary' | 'tertiary';
+export interface CheckboxProps {
     size?: 'small' | 'medium' | 'large';
-    label: string;
+    checked: boolean;
     handleClick?: () => void;
     handleMouseDown?: () => void;
+    handleChange?: () => void;
 } 

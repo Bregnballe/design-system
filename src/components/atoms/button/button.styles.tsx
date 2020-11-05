@@ -13,6 +13,7 @@ border-style: solid;
 padding: 1em;
 font-weight: 500;
 border-radius: ${props => props.theme.borderRadius};
+transition: box-shadow 0.2s;
 
 
 &:active {

@@ -1,6 +1,7 @@
 import styled, {css} from "styled-components";
 import { ButtonProps } from './Button.interface';
-import { mix } from 'polished'
+import { darken, lighten } from 'polished'
+
 
 export const ButtonStyled = styled.button<ButtonProps>`
 
@@ -31,35 +32,35 @@ ${({theme: {colors, shadowWidth}, ...props}) =>
     props.color === 'primary' ? 
     css`
         background-color: ${colors.primary};
-        border-color: ${mix(0.2, "black", colors.primary)};
-        box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)};
+        border-color: ${darken(0.1, colors.primary)};
+        box-shadow: inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.primary)};
         color: white;
         &:hover {
-            background-color: ${mix(0.05, "white", colors.primary)};
+            background-color: ${lighten(0.05, colors.primary)};
         }
         &:active {
-            background-color: ${mix(0.05, "black", colors.primary)};
-            box-shadow: inset 0px ${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)};
+            background-color: ${darken(0.05, colors.primary)};
+            box-shadow: inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.primary)};
         }
         &:focus {
-            box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.primary)},  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+            box-shadow: inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.primary)},  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
         }
     `
     : props.color === 'secondary' ?
     css`
         background-color: ${colors.secondary};
-        border-color: ${mix(0.2, "black", colors.secondary)};
-        box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)};
+        border-color:  ${darken(0.1, colors.secondary)};
+        box-shadow: inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)};
         color: ${colors.primary};
         &:hover {
-            background-color: ${mix(0.05, "white", colors.secondary)};
+            background-color: ${lighten(0.05, colors.secondary)};
         }
         &:active {
-            background-color: ${mix(0.05, "black", colors.secondary)};
-            box-shadow: inset 0px ${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)};
+            background-color: ${darken(0.05, colors.secondary)};
+            box-shadow: inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)};
         }
         &:focus {
-            box-shadow: inset 0px -${shadowWidth} 0px 0px ${mix(0.2, "black", colors.secondary)},  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+            box-shadow: inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)},  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
         }
 }
     ` 
@@ -68,6 +69,11 @@ ${({theme: {colors, shadowWidth}, ...props}) =>
         background-color: ${colors.tertiary};
         border-color: ${colors.tertiary};
         color: ${colors.primary};
+
+        &:active {
+            box-shadow: none;
+        }
+
         &:focus {
             box-shadow:  0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
         }
@@ -77,24 +83,24 @@ ${({theme: {colors, shadowWidth}, ...props}) =>
 
 /*########### SIZE ###########*/
 ${({theme: {colors, borderRadius, borderWidth, shadowWidth}, ...props}) =>
-    props.size === 'large' ? 
+    props.componentSize === 'large' ? 
     css`
         font-size: 2rem;
         border-width: calc(${borderWidth}*2);
         border-radius: calc(${borderRadius}*2);
-        box-shadow: inset 0px -calc(${shadowWidth}*2) 0px 0px ${mix(0.2, "black", colors[props.color])}; //ex: props.theme.colors["primary"]
+        box-shadow: inset 0px -calc(${shadowWidth}*2) 0px 0px ${darken(0.1, colors[props.color],)}; //ex: props.theme.colors["primary"]
         &:active {
-            box-shadow: inset 0px calc(${shadowWidth}*2) 0px 0px ${mix(0.2, "black", colors[props.color])};
+            box-shadow: inset 0px calc(${shadowWidth}*2) 0px 0px ${darken(0.1, colors[props.color])};
         }
     `
-    : props.size === 'medium' ?
+    : props.componentSize === 'medium' ?
     css`
         font-size: 1.5rem;
         border-width: calc(${borderWidth}*1.5);
         border-radius: calc(${borderRadius}*1.5);
-        box-shadow: inset 0px -calc(${shadowWidth}*1.5) 0px 0px ${mix(0.2, "black", colors[props.color])}; //ex: props.theme.colors["primary"]
+        box-shadow: inset 0px -calc(${shadowWidth}*1.5) 0px 0px ${darken(0.1, colors[props.color])}; //ex: props.theme.colors["primary"]
         &:active {
-            box-shadow: inset 0px calc(${shadowWidth}*1.5) 0px 0px ${mix(0.2, "black", colors[props.color])};
+            box-shadow: inset 0px calc(${shadowWidth}*1.5) 0px 0px ${darken(0.1, colors[props.color])};
         }
     ` 
     : 

@@ -21,4 +21,5 @@ const Template: Story<LinkProps> = (args) => {
 export const DefaultLink = Template.bind({}); //Template.bind({}) makes a copy of the function
 DefaultLink.args = {
   label: 'Link',
+  componentSize: 'small'
 };

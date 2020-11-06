@@ -1,6 +1,5 @@
 export interface LinkProps {
-    size?: 'small' | 'medium' | 'large';
+    componentSize: 'small' | 'medium' | 'large';
     label: string;
     onClick?: () => void;
-    onMouseDown?: () => void;
 } 

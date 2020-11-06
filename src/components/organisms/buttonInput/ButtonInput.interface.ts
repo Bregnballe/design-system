@@ -1,4 +1,4 @@
 export interface ButtonInputProps {
-    size?: 'small' | 'medium' | 'large';
-    color?: 'primary' | 'secondary';
+    componentSize: 'small' | 'medium' | 'large';
+    color: 'primary' | 'secondary';
 } 

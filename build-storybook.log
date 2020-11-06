@@ -1,0 +1,28 @@
+info @storybook/react v6.0.28
+info 
+info clean outputDir..
+info => Copying static files from: public
+info => Copying prebuild dll's..
+info => Building manager..
+info => Loading manager config..
+info => Loading presets
+info => Compiling manager..
+info => manager built (6.29 s)
+info => Building preview..
+info => Loading preview config..
+info => Loading presets
+info => Loading config/preview file in "./.storybook".
+info => Loading config/preview file in "./.storybook".
+info => Adding stories defined in ".storybook\main.js".
+info => Loading Webpack configuration from `node_modules\react-scripts`
+info => Removing existing JavaScript and TypeScript rules.
+info => Modifying Create React App rules.
+info => Using default Webpack setup.
+info => Compiling preview..
+<s> [webpack.Progress] 0% compiling
+<s> [webpack.Progress] 10% building 0/0 modules 0 active 
+<s> [webpack.Progress] 10% building 0/1 modules 1 active multi C:\codetemp\design-system\cra-ts\node_modules\@storybook\core\dist\server\common\polyfills.js C:\codetemp\design-system\cra-ts\node_modules\@storybook\core\dist\server\preview\globals.js C:\codetemp\design-system\cra-ts\.storybook\storybook-init-framework-entry.js C:\codetemp\design-system\cra-ts\node_modules\@storybook\addon-docs\dist\frameworks\common\config.js-generated-other-entry.js C:\codetemp\design-system\cra-ts\node_modules\@storybook\addon-docs\dist\frameworks\react\config.js-generated-other-entry.js C:\codetemp\design-system\cra-ts\node_modules\@storybook\addon-links\dist\preset\addDecorator.js-generated-other-entry.js C:\codetemp\design-system\cra-ts\node_modules\@storybook\addon-actions\dist\preset\addDecorator.js-generated-other-entry.js C:\codetemp\design-system\cra-ts\node_modules\@storybook\addon-actions\dist\preset\addArgs.js-generated-other-entry.js C:\codetemp\design-system\cra-ts\node_modules\@storybook\addon-backgrounds\dist\preset\defaultParameters.js-generated-other-entry.js C:\codetemp\design-system\cra-ts\.storybook\preview.js-generated-config-entry.js C:\codetemp\design-system\cra-ts\.storybook\generated-stories-entry.js
+<s> [webpack.Progress] 10% building 1/1 modules 0 active 
+<s> [webpack.Progress] 10% building 1/2 modules 1 active C:\codetemp\design-system\cra-ts\node_modules\babel-loader\lib\index.js??ref--10-oneOf-1!C:\codetemp\design-system\cra-ts\node_modules\eslint-loader\dist\cjs.js??ref--9-0!C:\codetemp\design-system\cra-ts\.storybook\storybook-init-framework-entry.js
+<s> [webpack.Progress] 10% building 1/3 modules 2 active C:\codetemp\design-system\cra-ts\node_modules\babel-loader\lib\index.js??ref--10-oneOf-1!C:\codetemp\design-system\cra-ts\node_modules\eslint-loader\dist\cjs.js??ref--9-0!C:\codetemp\design-system\cra-ts\.storybook\preview.js-generated-config-entry.js
+<s> [webpack.Progress] 10% building 1/4 modules 3 active C:\codetemp\design-system\cra-ts\node_modules\babel-loader\lib\index.js??ref--10-oneOf-1!C:\codetemp\design-system\cra-ts\node_modules\eslint-loader\dist\cjs.js??ref--9-0!C:\codetemp\design-system\cra-ts\.storybook\generated-stories-entry.js

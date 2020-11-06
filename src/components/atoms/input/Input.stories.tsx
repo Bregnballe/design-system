@@ -24,6 +24,6 @@ const Template: Story<InputProps> = (args) => {
 
 export const DefaultInput = Template.bind({}); //Template.bind({}) makes a copy of the function
 DefaultInput.args = {
-    placeholder: 'Default',
-    size: 'small',
+    //textPlaceholder: 'Default',
+    componentSize: 'small',
 };

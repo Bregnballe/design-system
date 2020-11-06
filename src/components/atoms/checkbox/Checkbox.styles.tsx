@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import { mix } from 'polished'
+import { CheckboxProps } from './Checkbox.interface';
 
 
 /*########### HIDING DEFAULT CHECKBOX ###########*/
@@ -19,7 +20,7 @@ export const CheckboxStyled = styled.input.attrs({ type: "checkbox" })`
 
 /*########### STYLING LABEL AS CHECKBOX ###########*/
 
-export const LabelStyled = styled.label`
+export const LabelStyled = styled.label<CheckboxProps>`
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -41,14 +42,14 @@ export const LabelStyled = styled.label`
     ${({theme: {colors}, ...props}) =>
             props.checked === true ? 
             css`
-                border-color: ${props => colors.primary};
+                border-color: ${colors.primary};
                 &:hover {
                     border-color: ${mix(0.2, "black", colors.primary)};
                 }
             `
             : 
             css `
-                border-color: ${props => colors.neutral};
+                border-color: ${colors.neutral};
                 &:hover {
                     border-color: ${mix(0.2, "black", colors.neutral)};
                 }
@@ -58,14 +59,14 @@ export const LabelStyled = styled.label`
 
     /*########### SIZE ###########*/
     ${({theme: {borderWidth, borderRadius}, ...props}) =>
-        props.size === 'large' ? 
+        props.componentSize === 'large' ? 
         css`
             border-width: calc(${borderWidth}*2);
             border-radius: calc(${borderRadius}*2);
             width: calc(20px*2);
             height: calc(20px*2);
         `
-        : props.size === 'medium' ?
+        : props.componentSize === 'medium' ?
         css`
             border-width: calc(${borderWidth}*1.5);
             border-radius: calc(${borderRadius}*1.5);
@@ -82,7 +83,9 @@ export const LabelStyled = styled.label`
 
 `;
 
-export const CheckStyled = styled.svg`
+
+
+export const CheckStyled = styled.svg<CheckboxProps>`
     pointer-events: none;
     cursor: pointer;
     display: ${props => (props.checked ? "inline" : "none")};
@@ -91,12 +94,12 @@ export const CheckStyled = styled.svg`
 
     /*########### SIZE ###########*/
     ${props =>
-        props.size === 'large' ? 
+        props.componentSize === 'large' ? 
         css`
             width: calc(13px*2);
             height: calc(13px*2);
         `
-        : props.size === 'medium' ?
+        : props.componentSize === 'medium' ?
         css`
             width: calc(13px*1.5);
             height: calc(13px*1.5);

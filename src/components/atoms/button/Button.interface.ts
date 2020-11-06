@@ -1,6 +1,6 @@
-export interface ButtonProps {
-    color?: 'primary' | 'secondary' | 'tertiary';
-    size?: 'small' | 'medium' | 'large';
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>  {
+    color: 'primary' | 'secondary' | 'tertiary';
+    componentSize: 'small' | 'medium' | 'large';
     label: string;
     handleClick?: () => void;
     handleMouseDown?: () => void;

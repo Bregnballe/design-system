@@ -1,6 +1,6 @@
 export interface CheckboxProps {
-    size?: 'small' | 'medium' | 'large';
     checked: boolean;
+    componentSize: 'small' | 'medium' | 'large';
     handleClick?: () => void;
     handleMouseDown?: () => void;
     handleChange?: () => void;

@@ -10,22 +10,23 @@ export const Checkbox: React.FC<CheckboxProps> = ({...props}) => {
 
 
     /*########### CHANGE TODOITEM COMPLETE STATE ###########*/
-    const handleChange = (e: React.FormEvent) => {
-        let targetValue = (e.target as HTMLInputElement).checked;
+    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+        let targetValue = e.currentTarget.checked;
 
         setCheckboxState(targetValue);
 
     };
 
-    const handleMouseDown = (e: React.FormEvent) => {
+    const handleMouseDown = (e: React.FormEvent<HTMLLabelElement>) => {
         e.preventDefault();
         // buttons receive focus on mousedown, so preventing that is as simple as using e.preventDefault()
     };
 
-    const handleClick = (e: React.FormEvent) => {
+    const handleClick = (e: React.FormEvent<HTMLLabelElement>) => {
         if (e.target === e.currentTarget) {
             e.preventDefault();
-            (e.target as HTMLLabelElement).control.click();
+            // @ts-ignore ... for some reason it says object is possibly null
+            e.target.control.click();
         }
         /*Clickhandler gets called twice. One time for the label and one for the checkbox. 
         Prevent default when the handler is called from the label. Instead call checkbox click.
@@ -42,13 +43,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({...props}) => {
         onClick={handleClick}
         >
             <CheckboxStyled
-                {...props}
                 onChange={handleChange}
                 type="checkbox"
                 id={"checkbox"}
                 checked={checkboxState}
-                onMouseDown={handleMouseDown}
-                tabIndex="0"
+                tabIndex={0}
             />
             <CheckStyled
                 {...props}
@@ -57,7 +56,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({...props}) => {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                onMouseDown={handleMouseDown}
             >
                 <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
             </CheckStyled>

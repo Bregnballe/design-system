@@ -10,7 +10,7 @@ export default {
     component: Checkbox,
     argTypes: {
         //backgroundColor: { control: 'color' },
-        size: { control: {type: 'select'}}
+        componentSize: { control: {type: 'select'}}
     },
 decorators:  [(Story) => <Story/>]
 } as Meta;
@@ -23,6 +23,5 @@ const Template: Story<CheckboxProps> = (args) => {
 export const DefaultCheckbox = Template.bind({}); //Template.bind({}) makes a copy of the function
 
 DefaultCheckbox.args = {
-    size: 'small',
-    checked: false,
+    componentSize: 'small',
 };

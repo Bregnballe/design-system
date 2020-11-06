@@ -21,7 +21,7 @@ const ButtonInputTemplate: Story<ButtonInputProps> = (args) => (
 );    
 
 export const DefaultButtonInput = ButtonInputTemplate.bind({});
-DefaultButtonInput.args = { size: "small", color: "primary" };
+DefaultButtonInput.args = { componentSize: "small", color: "primary" };
 
 
 /*

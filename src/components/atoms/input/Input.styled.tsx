@@ -21,13 +21,13 @@ border-radius: ${props => props.theme.borderRadius};
 
 /*########### SIZE ###########*/
 ${({theme: {borderRadius, borderWidth}, ...props}) =>
-    props.size === 'large' ? 
+    props.componentSize === 'large' ? 
     css`
         font-size: 2rem;
         border-width: calc(${borderWidth}*2);
         border-radius: calc(${borderRadius}*2);
     `
-    : props.size === 'medium' ?
+    : props.componentSize === 'medium' ?
     css`
         font-size: 1.5rem;
         border-width: calc(${borderWidth}*1.5);

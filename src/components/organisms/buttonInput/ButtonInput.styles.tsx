@@ -8,12 +8,12 @@ export const ButtonInputStyled = styled.div<ButtonInputProps>`
     & > :first-child {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border-right-width: 0;
     }
 
     & > :last-child {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
+
 
 `;

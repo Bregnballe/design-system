@@ -4,6 +4,8 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 
 import { ButtonGroup } from './ButtonGroup';
 import { ButtonGroupProps } from './ButtonGroup.interface';
+import { Button } from '../../atoms/button/Button';
+//import { ButtonProps } from '../../atoms/button/Button.interface';
 
 
 export default {
@@ -19,11 +21,15 @@ decorators:  [(Story) => <Story/>]
 
 
 const ButtonGroupTemplate: Story<ButtonGroupProps> = (args) => (
-  <ButtonGroup {...args}/>
+  <ButtonGroup {...args}>
+    <Button label="hello" {...args}/>
+    <Button label="hello" {...args}/>
+    <Button label="hello" {...args}/>
+  </ButtonGroup>
 );    
 
 export const DefaultButtonGroup = ButtonGroupTemplate.bind({});
-DefaultButtonGroup.args = { componentSize: "small", color: "secondary" };
+DefaultButtonGroup.args = { componentSize: "small", color: "secondary", direction: "horizontal" };
 
 
 

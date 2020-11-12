@@ -24,4 +24,15 @@ export const DefaultCheckbox = Template.bind({}); //Template.bind({}) makes a co
 
 DefaultCheckbox.args = {
     componentSize: 'small',
+    label: 'Label',
+    hasLabel: true,
+};
+
+
+export const CheckboxButton = Template.bind({}); 
+CheckboxButton.args = {
+    componentSize: 'small',
+    label: 'Label',
+    hasLabel: true,
+    asButton: true
 };

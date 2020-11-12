@@ -1,11 +1,11 @@
 import styled, {css} from "styled-components";
 import { mix, lighten, darken } from 'polished'
-import { CheckboxProps } from './Checkbox.interface';
+import { RadioButtonProps } from './RadioButton.interface';
 
 
-/*########### HIDING DEFAULT CHECKBOX ###########*/
+/*########### HIDING DEFAULT RADIO BUTTON ###########*/
 
-export const InputStyled = styled.input.attrs({ type: "checkbox" })`
+export const InputStyled = styled.input.attrs({ type: "radio" })`
     position: absolute;
     top: 0;
     left: 0;
@@ -18,7 +18,7 @@ export const InputStyled = styled.input.attrs({ type: "checkbox" })`
 `;
 
 
-export const BoxStyled = styled.div<CheckboxProps>`
+export const BoxStyled = styled.div<RadioButtonProps>`
     pointer-events: none; //make sure click hits parent (Label)
     position: relative;
     display: inline-flex;
@@ -27,7 +27,7 @@ export const BoxStyled = styled.div<CheckboxProps>`
     vertical-align: middle;
     background-color: #fff;
     border-style: solid;
-    border-radius: ${props => props.theme.borderRadius};
+    border-radius: 100%;
     transition: box-shadow 0.2s;
 
 
@@ -46,18 +46,16 @@ export const BoxStyled = styled.div<CheckboxProps>`
 
 
     /*########### SIZE ###########*/
-    ${({theme: {borderWidth, borderRadius}, ...props}) =>
+    ${({theme: {borderWidth}, ...props}) =>
         props.componentSize === 'large' ? 
         css`
             border-width: calc(${borderWidth}*2);
-            border-radius: calc(${borderRadius}*2);
             width: calc(20px*2);
             height: calc(20px*2);
         `
         : props.componentSize === 'medium' ?
         css`
             border-width: calc(${borderWidth}*1.5);
-            border-radius: calc(${borderRadius}*1.5);
             width: calc(20px*1.5);
             height: calc(20px*1.5);
         ` 
@@ -141,7 +139,7 @@ export const LabelStyled = styled.label<CheckboxProps>`
 
 /*########### STYLING THE NEW LABEL ###########*/
 
-export const SpanStyled = styled.span<CheckboxProps>`
+export const SpanStyled = styled.span<RadioButtonProps>`
     pointer-events: none; //make sure click hits parent (Label)
 
         /*########### SIZE ###########*/

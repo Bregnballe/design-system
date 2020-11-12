@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
-import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
+import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./RadioButton.styles";
 import { Icon } from '../../atoms/icon/Icon';
-import { CheckboxProps } from './Checkbox.interface';
+import { RadioButtonProps } from './RadioButton.interface';
 
 
 
-export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false, ...props}) => {
+export const RadioButton: React.FC<RadioButtonProps> = ({label="Label", asButton=false, ...props}) => {
 
-    const [checkboxState, setCheckboxState] = useState<boolean>(false);
+    const [radioButtonState, setRadioButtonState] = useState<boolean>(false);
 
 
     /*########### CHANGE TODOITEM COMPLETE STATE ###########*/
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         let targetValue = e.currentTarget.checked;
 
-        setCheckboxState(targetValue);
+        setRadioButtonState(targetValue);
 
     };
 
@@ -35,7 +35,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
         */
     };
 
-    console.log(checkboxState);
+    console.log(radioButtonState);
     console.log(props);
 
 
@@ -43,8 +43,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
             <LabelStyled
             {...props}
             asButton={asButton}
-            checked={checkboxState}
-            htmlFor={"checkbox"}
+            checked={radioButtonState}
+            htmlFor={"radioButton"}
             onMouseDown={handleMouseDown}
             onClick={handleClick}
             >
@@ -53,18 +53,19 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
                 }
                 <BoxStyled
                     {...props}
-                    checked={checkboxState}
+                    checked={radioButtonState}
                 >
-                    {checkboxState &&
-                        <Icon name="check" color="primary" {...props} />
+                    {radioButtonState &&
+                        <Icon name="circle" color="primary" {...props} />
+
                     }
                 </BoxStyled>
                 <InputStyled
                     onChange={handleChange}
                     onMouseDown={handleMouseDown}
-                    type="checkbox"
-                    id={"checkbox"}
-                    checked={checkboxState}
+                    type="radio"
+                    id={"radioButton"}
+                    checked={radioButtonState}
                     tabIndex={0}
                 />
             </LabelStyled> 

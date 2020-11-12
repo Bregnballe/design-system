@@ -4,6 +4,8 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { ButtonInput } from './ButtonInput';
 import { ButtonInputProps } from './ButtonInput.interface';
+import { Button } from '../../atoms/button/Button';
+import { Input } from '../../atoms/input/Input';
 
 export default {
     title: 'Organisms/ButtonInput',
@@ -16,13 +18,33 @@ export default {
     } as Meta;
 
 
-const ButtonInputTemplate: Story<ButtonInputProps> = (args) => (
-    <ButtonInput {...args}/>
+export const DefaultButtonInput: Story<ButtonInputProps> = (args) => (
+    <ButtonInput {...args}>
+        <Input {...args}/>
+        <Button {...args}/>
+    </ButtonInput>    
 );    
 
-export const DefaultButtonInput = ButtonInputTemplate.bind({});
-DefaultButtonInput.args = { componentSize: "small", color: "primary" };
+DefaultButtonInput.args = { 
+    componentSize: "small", 
+    color: "primary", 
+    label: "Send", 
+    textPlaceholder: "Type something" 
+};
 
+export const ReversedButtonInput: Story<ButtonInputProps> = (args) => (
+    <ButtonInput {...args}>
+        <Button {...args}/>
+        <Input {...args}/>
+    </ButtonInput>    
+);  
+
+ReversedButtonInput.args = { 
+    componentSize: "small", 
+    color: "primary", 
+    label: "Send", 
+    textPlaceholder: "Type something" 
+};
 
 /*
 const ButtonInputTemplate = ({...args }) => (

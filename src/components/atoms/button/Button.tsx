@@ -18,7 +18,13 @@ const handleClick = () => {
   /*########### COMPONENT ###########*/
 export const Button: React.FC<ButtonProps> = ({ label, ...rest }) => {
   return (
-    <ButtonStyled label={label} {...rest} onClick={handleClick} onMouseDown={handleMouseDown}>
+    <ButtonStyled 
+      type="button" 
+      label={label} 
+      {...rest} 
+      onClick={handleClick} 
+      onMouseDown={handleMouseDown}
+    >
       {label}
     </ButtonStyled>
   );

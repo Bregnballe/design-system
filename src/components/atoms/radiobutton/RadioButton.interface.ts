@@ -1,4 +1,4 @@
-export interface CheckboxProps {
+export interface RadioButtonProps {
     checked: boolean;
     componentSize: 'small' | 'medium' | 'large';
     label?: string;

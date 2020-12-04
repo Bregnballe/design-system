@@ -3,29 +3,29 @@ import { ButtonStyled } from './Button.styles';
 import { ButtonProps } from './Button.interface';
 
 
-  /*########### CLICK ###########*/
-const handleClick = () => {
-  console.log("clicked");
+  /*########### COMPONENT ###########*/
+export const Button: React.FC<ButtonProps> = ({ children, fluid=false, ...rest }) => {
+
+  const handleClick = () => {
+  if (rest.handleClick) {
+      rest.handleClick()
+  }
 }
 
-  /*########### MOUSE DOWN ###########*/
   const handleMouseDown = (e: React.FormEvent) => {
     e.preventDefault();
     // buttons receive focus on mousedown, so preventing that is as simple as using e.preventDefault()
   };
 
-
-  /*########### COMPONENT ###########*/
-export const Button: React.FC<ButtonProps> = ({ label, ...rest }) => {
   return (
     <ButtonStyled 
       type="button" 
-      label={label} 
+      fluid={fluid}
       {...rest} 
       onClick={handleClick} 
       onMouseDown={handleMouseDown}
     >
-      {label}
+      {children}
     </ButtonStyled>
   );
 };

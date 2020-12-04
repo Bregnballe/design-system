@@ -42,6 +42,7 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
             &:last-child {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
+            }
         }
     `
     :
@@ -66,6 +67,16 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
     }
     
     `
-}
+    }
+
+    /*########### FLUID ###########*/
+    ${props =>
+
+    props.fluid && 
+    css`
+    width:              100%;
+    text-align:         center;
+    `
+    }
 
 `;

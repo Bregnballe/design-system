@@ -6,7 +6,9 @@ import { darken, lighten } from 'polished'
 export const ButtonStyled = styled.button<ButtonProps>`
 
 /*########### DEFAULT ###########*/
-display:            inline-block;
+display:            inline-flex;
+align-items:        center;
+vertical-align:     middle;
 cursor:             pointer;
 user-select:        none;
 border-style:       solid;
@@ -23,6 +25,14 @@ padding-bottom:     calc(1em - ${props => props.theme.shadowWidth});
 
 &:focus {
 outline:            none; 
+}
+
+& > *:not(:first-child) {
+    margin-left: 4px;
+}
+
+& > svg { 
+fill:               ${props => props.theme.colors.primary};
 }
 
 
@@ -50,6 +60,11 @@ box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.primar
 box-shadow:         inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.primary)},  
                     0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
 }
+
+& > svg { 
+fill:              white;
+}
+
 `
 
 : props.color === 'secondary' ?
@@ -72,6 +87,7 @@ box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.second
 box-shadow:         inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)},  
                     0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
 }
+
 ` 
 : // props.color === 'tertiary' 
 css`
@@ -125,4 +141,28 @@ border-width:       ${borderWidth};
 `    
 }
 
-`;
+/*########### FLUID ###########*/
+${props =>
+
+props.fluid && 
+css`
+width:              100%;
+text-align:         center;
+`
+}
+
+
+
+/*########### LAYOUT ###########*/
+${props =>
+
+props.layout === "center" ? 
+css`
+justify-content:    center;
+`
+:
+css`
+justify-content:    space-between;
+`
+}
+`

@@ -4,12 +4,17 @@ import { InputStyled } from './Input.styled';
 
 
     /*########### COMPONENT ###########*/
-export const Input: FC<InputProps> = ({componentSize, textPlaceholder="Type something"}) => {
-    const [inputState, setInputState] = useState<String>("");
+export const Input: FC<InputProps> = ({componentSize, textPlaceholder="Type something", ...props}) => {
+    const [inputState, setInputState] = useState<string>("");
 
     /*########### CHANGE INPUT STATE ###########*/
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setInputState(e.currentTarget.value);
+
+        if (props.handleChange) {
+            props.handleChange(e.currentTarget.value)
+        }
+        // if a parent has sent a handle change callback function, update state of parent
         };
 
 
@@ -21,6 +26,6 @@ export const Input: FC<InputProps> = ({componentSize, textPlaceholder="Type some
     };
 
     return (
-        <InputStyled placeholder={textPlaceholder} componentSize={componentSize} onKeyDown={handleKeyDown} onChange={handleChange} />
+        <InputStyled value={inputState} placeholder={textPlaceholder} componentSize={componentSize} onKeyDown={handleKeyDown} onChange={handleChange} />
     );
 };

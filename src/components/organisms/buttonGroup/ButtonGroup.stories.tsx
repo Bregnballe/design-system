@@ -5,6 +5,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { ButtonGroup } from './ButtonGroup';
 import { ButtonGroupProps } from './ButtonGroup.interface';
 import { Button } from '../../atoms/button/Button';
+import { Icon } from '../../atoms/icon/Icon';
 //import { ButtonProps } from '../../atoms/button/Button.interface';
 
 
@@ -20,16 +21,42 @@ decorators:  [(Story) => <Story/>]
 } as Meta;
 
 
-const ButtonGroupTemplate: Story<ButtonGroupProps> = (args) => (
+export const DefaultButtonGroup: Story<ButtonGroupProps> = (args) => (
   <ButtonGroup {...args}>
-    <Button label="hello" {...args}/>
-    <Button label="hello" {...args}/>
-    <Button label="hello" {...args}/>
+    <Button {...args}>Hey</Button>
+    <Button {...args}>Hey</Button>
+    <Button {...args}>Hey</Button>
   </ButtonGroup>
 );    
 
-export const DefaultButtonGroup = ButtonGroupTemplate.bind({});
 DefaultButtonGroup.args = { componentSize: "small", color: "secondary", direction: "horizontal" };
+
+
+export const FluidButtonGroup: Story<ButtonGroupProps> = (args) => (
+  <ButtonGroup {...args}>
+    <Button fluid {...args}>Hey</Button>
+    <Button fluid {...args}>Hey</Button>
+    <Button fluid {...args}>Hey</Button>
+  </ButtonGroup>
+);    
+
+FluidButtonGroup.args = { fluid: true, componentSize: "small", color: "secondary", direction: "horizontal" };
+
+
+export const IconButtonGroup: Story<ButtonGroupProps> = (args) => (
+  <ButtonGroup {...args}>
+    <Button {...args}><Icon name="check" componentSize="small" color="primary"/></Button>
+    <Button {...args}><Icon name="check" componentSize="small" color="primary"/></Button>
+    <Button {...args}><Icon name="check" componentSize="small" color="primary"/></Button>
+  </ButtonGroup>
+);    
+
+IconButtonGroup.args = { componentSize: "small", color: "primary", direction: "horizontal" };
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-export interface ButtonInputProps {
+export interface InputGroupProps {
     componentSize: 'small' | 'medium' | 'large';
     color: 'primary' | 'secondary';
     textPlaceholder?: string;

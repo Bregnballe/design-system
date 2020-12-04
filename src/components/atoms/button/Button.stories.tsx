@@ -3,6 +3,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Button } from './Button';
+import { Icon } from '../../atoms/icon/Icon';
 import { ButtonProps } from './Button.interface';
 
 export default {
@@ -10,35 +11,55 @@ export default {
   component: Button,
   argTypes: {
     //backgroundColor: { control: 'color' },
-    color: { control: 'select'}
   },
 decorators:  [(Story) => <Story/>]
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => {
-  return <Button {...args} />;
+  return <Button {...args}><Icon color="primary" componentSize="small" name="check" /><span>Hey</span></Button>;
 }
-
-
 
 
 export const Primary = Template.bind({}); //Template.bind({}) makes a copy of the function
 Primary.args = {
   color: 'primary',
-  label: 'Primary',
   componentSize: 'small',
+  fluid: false,
+  layout: 'center'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   color: 'secondary',
-  label: 'Secondary',
-  componentSize: 'small'
+  componentSize: 'small',
+  fluid: false,
+  layout: 'center'
 };
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
   color: 'tertiary',
-  label: 'Tertiary',
-  componentSize: 'small'
+  componentSize: 'small',
+  fluid: false,
+  layout: 'center'
 };
+
+
+export const IconButton: Story<ButtonProps> = (args) => {
+  return <Button {...args}><Icon color="primary" componentSize="small" name="check" /></Button>;
+}
+
+IconButton.args = {
+  color: 'primary',
+};
+
+
+
+export const IconAndTextButton: Story<ButtonProps> = (args) => {
+  return <Button {...args}><Icon color="primary" componentSize="small" name="check" /><span>Hey</span></Button>;
+}
+
+IconAndTextButton.args = {
+  color: 'primary',
+};
+

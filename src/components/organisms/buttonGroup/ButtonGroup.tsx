@@ -5,11 +5,12 @@ import { ButtonGroupProps } from './ButtonGroup.interface';
 //import { Button } from '../../atoms/button/Button';
 
 
-export const ButtonGroup: React.FC<ButtonGroupProps> = ({direction="horizontal", ...rest}) => (
-    <ButtonGroupStyled direction={direction} { ...rest } >
+export const ButtonGroup: React.FC<ButtonGroupProps> = ({direction="horizontal", fluid=false, ...rest}) => {
+    return (
+    <ButtonGroupStyled direction={direction} fluid={fluid} { ...rest } >
         {rest.children}
     </ButtonGroupStyled>     
-);
+)};
 
 
 

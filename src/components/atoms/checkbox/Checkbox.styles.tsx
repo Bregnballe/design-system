@@ -80,6 +80,32 @@ export const LabelStyled = styled.label<CheckboxProps>`
     cursor: pointer;
 
 
+    /*########### SIZE ###########*/
+    ${({theme: {borderWidth, borderRadius}, ...props}) =>
+        props.componentSize === 'large' ? 
+        css`
+            font-size: 2rem;
+            border-width: calc(${borderWidth}*2);
+            border-radius: calc(${borderRadius}*2);
+            padding: calc(12px*2);
+        `
+        : props.componentSize === 'medium' ?
+        css`
+            font-size: 1.5rem;
+            border-width: calc(${borderWidth}*1.5);
+            border-radius: calc(${borderRadius}*1.5);
+            padding: calc(12px*1.5);
+        ` 
+        : 
+        css `
+            font-size: 1rem;
+            border-width: ${borderWidth};
+            border-radius: ${borderRadius};
+            padding: 12px;
+        `    
+    }    
+
+
 
 
     /*########### CHECKED STATUS ###########*/
@@ -104,23 +130,21 @@ export const LabelStyled = styled.label<CheckboxProps>`
 
 
     /*########### CHECK BOX AS BUTTON ###########*/
-    ${({theme: {colors, borderRadius, borderWidth, shadowWidth}, ...props}) =>
+    ${({theme: {colors, shadowWidth}, ...props}) =>
             props.asButton === true ? 
             css`
-                padding: 12px;
+                border-style: solid;
+                border-color: ${darken(0.1, colors.secondary)};
                 background-color: ${colors.secondary};
-                border: ${borderWidth} solid ${darken(0.1, colors.secondary)};
-                border-radius: ${borderRadius};
                 box-shadow: inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)};
                 &:hover {
                     background-color: ${lighten(0.05, colors.secondary)};
-                    border-color: ${darken(0.1, colors.secondary)};
                 }
                 &:active {
                     background-color: ${darken(0.05, colors.secondary)};
                     box-shadow: inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)};
-                    padding-top: calc(1em + ${shadowWidth});
-                    padding-bottom: calc(1em - ${shadowWidth});
+                    padding-top: calc(1em + ${props => props.theme.shadowWidth});
+                    padding-bottom: calc(1em - ${props => props.theme.shadowWidth});
                 }
                 &:focus-within > ${BoxStyled} {
                     box-shadow: none;

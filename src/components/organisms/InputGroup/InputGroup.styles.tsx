@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ButtonInputProps } from './ButtonInput.interface';
+import { InputGroupProps } from './InputGroup.interface';
 
-export const ButtonInputStyled = styled.div<ButtonInputProps>`
+export const InputGroupStyled = styled.div<InputGroupProps>`
     display: inline-flex;
     vertical-align: top;
 

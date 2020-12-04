@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
-import { Icon } from '../../atoms/icon/Icon';
+import { InputStyled, LabelStyled } from "./Checkbox.styles";
 import { CheckboxProps } from './Checkbox.interface';
 
+//import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
 
 
-export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false, ...props}) => {
+export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false, children, ...props}) => {
 
     const [checkboxState, setCheckboxState] = useState<boolean>(false);
 
@@ -35,9 +35,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
         */
     };
 
-    console.log(checkboxState);
-    console.log(props);
-
 
     return (
             <LabelStyled
@@ -48,17 +45,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
             onMouseDown={handleMouseDown}
             onClick={handleClick}
             >
-                    {props.hasLabel && 
-                    <SpanStyled {...props}>{label}</SpanStyled>
-                }
-                <BoxStyled
-                    {...props}
-                    checked={checkboxState}
-                >
-                    {checkboxState &&
-                        <Icon name="check" color="primary" {...props} />
-                    }
-                </BoxStyled>
+                {children}
                 <InputStyled
                     onChange={handleChange}
                     onMouseDown={handleMouseDown}
@@ -70,3 +57,19 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
             </LabelStyled> 
     );
     };
+
+
+    /*
+
+    {props.hasLabel && 
+        <SpanStyled {...props}>{label}</SpanStyled>
+    }
+        <BoxStyled
+            {...props}
+            checked={checkboxState}
+        >
+        {checkboxState &&
+            <Icon name="check" color="primary" {...props} />
+        }
+        </BoxStyled>
+    */   

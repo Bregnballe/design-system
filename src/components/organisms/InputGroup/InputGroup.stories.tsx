@@ -2,14 +2,14 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { ButtonInput } from './ButtonInput';
-import { ButtonInputProps } from './ButtonInput.interface';
+import { InputGroup } from './InputGroup';
+import { InputGroupProps } from './InputGroup.interface';
 import { Button } from '../../atoms/button/Button';
 import { Input } from '../../atoms/input/Input';
 
 export default {
-    title: 'Organisms/ButtonInput',
-    component: ButtonInput,
+    title: 'Organisms/InputGroup',
+    component: InputGroup,
     argTypes: {
         //backgroundColor: { control: 'color' },
         color: { control: {type: 'select'}} // control: 'select' does not work
@@ -18,28 +18,28 @@ export default {
     } as Meta;
 
 
-export const DefaultButtonInput: Story<ButtonInputProps> = (args) => (
-    <ButtonInput {...args}>
+export const DefaultInputGroup: Story<InputGroupProps> = (args) => (
+    <InputGroup {...args}>
         <Input {...args}/>
         <Button {...args}/>
-    </ButtonInput>    
+    </InputGroup>    
 );    
 
-DefaultButtonInput.args = { 
+DefaultInputGroup.args = { 
     componentSize: "small", 
     color: "primary", 
     label: "Send", 
     textPlaceholder: "Type something" 
 };
 
-export const ReversedButtonInput: Story<ButtonInputProps> = (args) => (
-    <ButtonInput {...args}>
+export const ReversedInputGroup: Story<InputGroupProps> = (args) => (
+    <InputGroup {...args}>
         <Button {...args}/>
         <Input {...args}/>
-    </ButtonInput>    
+    </InputGroup>    
 );  
 
-ReversedButtonInput.args = { 
+ReversedInputGroup.args = { 
     componentSize: "small", 
     color: "primary", 
     label: "Send", 

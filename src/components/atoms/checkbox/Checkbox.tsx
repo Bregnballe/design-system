@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { InputStyled, LabelStyled } from "./Checkbox.styles";
 import { CheckboxProps } from './Checkbox.interface';
@@ -6,16 +6,14 @@ import { CheckboxProps } from './Checkbox.interface';
 //import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
 
 
-export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false, children, ...props}) => {
-
-    const [checkboxState, setCheckboxState] = useState<boolean>(false);
+export const Checkbox: React.FC<CheckboxProps> = ({asButton=false, children, checked, ...props}) => {
 
 
     /*########### CHANGE TODOITEM COMPLETE STATE ###########*/
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         let targetValue = e.currentTarget.checked;
 
-        setCheckboxState(targetValue);
+        props.handleChange && props.handleChange(targetValue)
 
     };
 
@@ -36,11 +34,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
     };
 
 
+
+
     return (
             <LabelStyled
             {...props}
             asButton={asButton}
-            checked={checkboxState}
+            checked={checked}
             htmlFor={"checkbox"}
             onMouseDown={handleMouseDown}
             onClick={handleClick}
@@ -51,7 +51,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({label="Label", asButton=false
                     onMouseDown={handleMouseDown}
                     type="checkbox"
                     id={"checkbox"}
-                    checked={checkboxState}
+                    checked={checked}
                     tabIndex={0}
                 />
             </LabelStyled> 

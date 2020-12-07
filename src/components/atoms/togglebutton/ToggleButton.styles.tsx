@@ -4,5 +4,5 @@ import { ButtonStyled } from '../../atoms/button/Button.styles'
 
 
 export const ToggleButtonStyled = styled(ButtonStyled)<ToggleButtonProps>`
-
+    //flex-wrap: wrap;
 `

@@ -2,12 +2,12 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Checkbox } from './Checkbox';
+import { MyCheckbox } from './Checkbox.examples';
 import { CheckboxProps } from './Checkbox.interface';
 
 export default {
     title: 'Atoms/Checkbox',
-    component: Checkbox,
+    component: MyCheckbox,
     argTypes: {
         //backgroundColor: { control: 'color' },
         componentSize: { control: {type: 'select'}}
@@ -15,24 +15,10 @@ export default {
 decorators:  [(Story) => <Story/>]
 } as Meta;
 
-const Template: Story<CheckboxProps> = (args) => {
-    return <Checkbox {...args} />;
+export const DefaultCheckbox: Story<CheckboxProps> = (args) => {
+    return <MyCheckbox {...args} />;
 }
-
-
-export const DefaultCheckbox = Template.bind({}); //Template.bind({}) makes a copy of the function
 
 DefaultCheckbox.args = {
     componentSize: 'small',
-    label: 'Label',
-    hasLabel: true,
-};
-
-
-export const CheckboxButton = Template.bind({}); 
-CheckboxButton.args = {
-    componentSize: 'small',
-    label: 'Label',
-    hasLabel: true,
-    asButton: true
 };

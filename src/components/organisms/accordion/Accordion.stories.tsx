@@ -2,8 +2,7 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { AccordionRow } from './Accordion.examples';
-import { AccordionColumn } from './Accordion.examples';
+import { AccordionRow, AccordionTest, AccordionColumn } from './Accordion.examples';
 
 import {toggleReducer} from '../../../reducers/toggleReducers/toggleReducer'
 import {onlySelectOneReducer} from '../../../reducers/toggleReducers/onlySelectOneReducer'
@@ -15,7 +14,7 @@ export default {
     component: AccordionRow,
     argTypes: {
         //backgroundColor: { control: 'color' },
-        color: { control: {type: 'select'}} // control: 'select' does not work
+        //color: { control: {type: 'select'}} // control: 'select' does not work
     },
     decorators:  [(Story) => <Story/>]
     } as Meta;
@@ -53,4 +52,14 @@ export const ColumnAccordion: Story = (args) => (
 ColumnAccordion.args = { 
     reducer: toggleReducer,
 };
+
+
+export const TestAccordion: Story = (args) => (
+    <AccordionTest {...args} />  
+);    
+
+TestAccordion.args = { 
+    reducer: toggleReducer,
+};
+
 

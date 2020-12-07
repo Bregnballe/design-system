@@ -3,7 +3,8 @@ export interface ToggleButtonProps {
     color: 'primary' | 'secondary' | 'tertiary';
     componentSize?: 'small' | 'medium' | 'large';
     fluid?: boolean;
-    children: React.ReactNode;
+    layout?: 'space-between' | 'center' ;
+    children?: React.ReactNode;
     index?: number | undefined;
     selected: boolean;
 } 

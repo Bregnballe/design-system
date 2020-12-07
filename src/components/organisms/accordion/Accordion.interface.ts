@@ -3,4 +3,5 @@ export interface AccordionProps {
     padding?: 'small' | 'medium' | 'large' | 'none';
     layout?: 'row' | 'column';
     fluid?: boolean;
+    as?: any;
 } 

@@ -70,12 +70,17 @@ export const BoxStyled = styled.div<RadioButtonProps>`
 `;
 
 /*########### STYLING LABEL AS CHECKBOX ###########*/
-export const LabelStyled = styled.label<CheckboxProps>`
+export const LabelStyled = styled.label<RadioButtonProps>`
     display: inline-flex;
     vertical-align: middle;
     align-items: center;
     position: relative;
     cursor: pointer;
+
+    & > *:nth-child(2) {
+    margin-left: 4px;
+}
+
 
 
 

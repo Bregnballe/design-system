@@ -40,7 +40,7 @@ export const FluidButtonGroup: Story<ButtonGroupProps> = (args) => (
   </ButtonGroup>
 );    
 
-FluidButtonGroup.args = { fluid: true, componentSize: "small", color: "secondary", direction: "horizontal" };
+FluidButtonGroup.args = { fluid: true, componentSize: "small", color: "secondary", direction: "horizontal", layout: "center" };
 
 
 export const IconButtonGroup: Story<ButtonGroupProps> = (args) => (

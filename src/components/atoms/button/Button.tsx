@@ -4,7 +4,7 @@ import { ButtonProps } from './Button.interface';
 
 
   /*########### COMPONENT ###########*/
-export const Button: React.FC<ButtonProps> = ({ children, fluid=false, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({ children, fluid, layout, componentSize, ...rest }) => {
 
   const handleClick = () => {
   if (rest.handleClick) {
@@ -21,6 +21,8 @@ export const Button: React.FC<ButtonProps> = ({ children, fluid=false, ...rest }
     <ButtonStyled 
       type="button" 
       fluid={fluid}
+      layout={layout}
+      componentSize={componentSize}
       {...rest} 
       onClick={handleClick} 
       onMouseDown={handleMouseDown}

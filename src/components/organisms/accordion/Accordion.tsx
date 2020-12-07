@@ -1,7 +1,7 @@
 import React from 'react'
 import {AccordionProps} from './Accordion.interface'
 import { AccordionStyled } from './Accordion.styles'
-export const Accordion: React.FC<AccordionProps> = ({fluid, layout, children}) => {
+export const Accordion: React.FC<AccordionProps> = ({as, fluid, layout, children}) => {
 
-    return <AccordionStyled fluid={fluid} layout={layout}>{children}</AccordionStyled>
+    return <AccordionStyled as={as} fluid={fluid} layout={layout}>{children}</AccordionStyled>
 }

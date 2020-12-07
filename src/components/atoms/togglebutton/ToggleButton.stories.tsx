@@ -10,29 +10,28 @@ export default {
     component: MyToggleButton,
     argTypes: {
         //backgroundColor: { control: 'color' },
-        color: { control: {type: 'select'}} // control: 'select' does not work
+        //color: { control: {type: 'select'}} // control: 'select' does not work
     },
     decorators:  [(Story) => <Story/>]
     } as Meta;
 
 
 export const DefaultToggleButton: Story = (args) => (
-    <MyToggleButton {...args} />  
+    <MyToggleButton fluid={args.fluid} color={args.color} componentSize={args.componentSize} selected={args.selected} layout={args.layout}/>  
 );    
 
 DefaultToggleButton.args = { 
     color: 'primary',
-    fluid: false
+    fluid: false,
+    componentSize: 'small',
+    selected: false,
+    layout: "center"
 };
 
-export const ToggleButtonReversed: Story = (args) => (
-    <MyToggleButtonReversed {...args} />  
+export const ToggleButtonReversed: Story = () => (
+    <MyToggleButtonReversed  fluid={false} color="secondary" componentSize="small" selected={false}/>  
 );    
 
-ToggleButtonReversed.args = { 
-    color: 'secondary',
-    fluid: false
-};
 
 /*
 const ButtonInputTemplate = ({...args }) => (

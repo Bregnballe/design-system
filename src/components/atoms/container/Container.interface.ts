@@ -3,4 +3,5 @@ export interface ContainerProps {
     padding?: 'small' | 'medium' | 'large' | 'none';
     layout?: 'row' | 'column';
     fluid?: boolean;
+    as?: any;
 } 

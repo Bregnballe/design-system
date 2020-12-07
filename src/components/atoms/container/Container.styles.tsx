@@ -3,6 +3,8 @@ import { ContainerProps } from './Container.interface';
 
 export const ContainerStyled = styled.div<ContainerProps>`
 
+flex-basis: 100%;
+
 /*########### FLUID ###########*/
 ${props =>
 
@@ -22,6 +24,7 @@ ${props =>
 props.layout === 'column' ? 
     css`
     flex-direction: column;
+    flex-wrap: wrap;
     `
 :   css`
     flex-direction: row;

@@ -27,7 +27,7 @@ padding-bottom:     calc(1em - ${props => props.theme.shadowWidth});
 outline:            none; 
 }
 
-& > *:not(:first-child) {
+& > *:nth-child(2) {
     margin-left: 4px;
 }
 

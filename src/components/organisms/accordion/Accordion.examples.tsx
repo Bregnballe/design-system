@@ -23,8 +23,8 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
     }
 
     return (
-        <Accordion layout="column" fluid={true}>
-        <Container layout="column">
+        <Accordion layout="column" fluid={true}  as="ul">
+        <Container layout="column" as="li">
             <ToggleButton
             color="tertiary"
             index={0}
@@ -37,7 +37,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
             </ToggleButton>
             {selectedList[0] && <Container padding="small" >Hey again</Container>}
         </Container>
-        <Container layout="column">
+        <Container layout="column" as="li">
             <ToggleButton
             color="tertiary"
             index={1}
@@ -50,7 +50,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
             </ToggleButton>
             {selectedList[1] && <Container padding="small" >Hey again</Container>}
         </Container>
-        <Container layout="column">
+        <Container layout="column" as="li">
             <ToggleButton
             color="tertiary"
             index={2}
@@ -79,8 +79,8 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
     }
 
     return (
-        <Accordion layout="column">
-        <Container layout="row">
+        <Accordion layout="column" as="ul">
+        <Container layout="row" as="li">
             <ToggleButton
             color="tertiary"
             index={0}
@@ -92,7 +92,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
             </ToggleButton>
             {selectedList[0] && <Container padding="small" >Hey again</Container>}
         </Container>
-        <Container layout="row">
+        <Container layout="row" as="li">
             <ToggleButton
             color="tertiary"
             index={1}
@@ -104,7 +104,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
             </ToggleButton>
             {selectedList[1] && <Container padding="small" >Hey again</Container>}
         </Container>
-        <Container layout="row">
+        <Container layout="row" as="li">
             <ToggleButton
             color="tertiary"
             index={2}
@@ -115,6 +115,61 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
                 {selectedList[2] ? <Icon color="primary" componentSize="small" name="chevronRight" flip="horizontal"   /> : <Icon color="primary" componentSize="small"   name="chevronRight" />}
             </ToggleButton>
             {selectedList[2] && <Container padding="small" >Hey again</Container>}
+        </Container>
+        </Accordion>
+    )
+}
+
+
+
+export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) => {
+    const {selectedList, toggleIndex} = useToggle({
+    reducer: reducer,
+    })
+
+    const handleClick = (index:number|undefined) => {
+        toggleIndex(index)
+    }
+
+    return (
+        <Accordion layout="column" fluid={true} as="ul">
+        <Container layout="column" as="li">
+            <ToggleButton
+            color="tertiary"
+            index={0}
+            selected={selectedList[0]}
+            handleClick={handleClick}
+            >
+                <span>Hey</span>
+                {selectedList[0] ? <Icon color="primary" componentSize="small" name="chevronRight"  flip="horizontal" /> : <Icon color="primary" componentSize="small"  name="chevronRight" />}
+                {selectedList[0] && <Container padding="small" >Hey again</Container>}
+            </ToggleButton>
+            
+        </Container>
+        <Container layout="column" as="li">
+            <ToggleButton
+            color="tertiary"
+            index={1}
+            selected={selectedList[1]}
+            handleClick={handleClick}
+            >
+                <span>Hey</span>
+                {selectedList[1] ? <Icon color="primary" componentSize="small" name="chevronRight" flip="horizontal" /> : <Icon color="primary" componentSize="small" name="chevronRight" />}
+                {selectedList[1] && <Container padding="small" >Hey again</Container>}
+            </ToggleButton>
+            
+        </Container>
+        <Container layout="column" as="li">
+            <ToggleButton
+            color="tertiary"
+            index={2}
+            selected={selectedList[2]}
+            handleClick={handleClick}
+            >
+                <span>Hey</span>
+                {selectedList[2] ? <Icon color="primary" componentSize="small" name="chevronRight" flip="horizontal"   /> : <Icon color="primary" componentSize="small"   name="chevronRight" />}
+                {selectedList[2] && <Container padding="none" fluid={true} >Hey again</Container>}
+            </ToggleButton>
         </Container>
         </Accordion>
     )

@@ -20,10 +20,8 @@ const Template: Story<InputProps> = (args) => {
 }
 
 
-
-
 export const DefaultInput = Template.bind({}); //Template.bind({}) makes a copy of the function
 DefaultInput.args = {
-    //textPlaceholder: 'Default',
+    textPlaceholder: 'Type something',
     componentSize: 'small',
 };

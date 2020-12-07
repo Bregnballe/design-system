@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {ToggleButton} from './ToggleButton'
 import {Icon} from '../icon/Icon'
+import {ToggleButtonProps} from './ToggleButton.interface'
 
-export const MyToggleButton = () => {
+export const MyToggleButton: React.FC<ToggleButtonProps> = ({color, fluid, layout, componentSize}) => {
     const [selected, setSelected] = useState(false)
 
     const handleClick = () => {
@@ -10,14 +11,14 @@ export const MyToggleButton = () => {
     }
 
     return (
-        <ToggleButton color="primary" selected={selected} handleClick={handleClick}>
+        <ToggleButton componentSize={componentSize} color={color} layout={layout} fluid={fluid} selected={selected} handleClick={handleClick}>
             <span>Hey</span>
             {selected && <Icon color="primary" name="check" componentSize="small" />}
         </ToggleButton>
     )
 }
 
-export const MyToggleButtonReversed = () => {
+export const MyToggleButtonReversed: React.FC<ToggleButtonProps> = ({color, fluid, layout, componentSize}) => {
     const [selected, setSelected] = useState(false)
 
     const handleClick = () => {
@@ -25,7 +26,7 @@ export const MyToggleButtonReversed = () => {
     }
 
     return (
-        <ToggleButton color="secondary" selected={selected} handleClick={handleClick}>
+        <ToggleButton componentSize={componentSize} color={color}  layout={layout} fluid={fluid} selected={selected} handleClick={handleClick}>
             {selected && <Icon color="primary" name="check" componentSize="small" />}
             <span>Hey</span>
         </ToggleButton>

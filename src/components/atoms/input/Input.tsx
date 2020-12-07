@@ -4,7 +4,7 @@ import { InputStyled } from './Input.styled';
 
 
     /*########### COMPONENT ###########*/
-export const Input: FC<InputProps> = ({componentSize, textPlaceholder="Type something", ...props}) => {
+export const Input: FC<InputProps> = ({componentSize, textPlaceholder, ...props}) => {
     const [inputState, setInputState] = useState<string>("");
 
     /*########### CHANGE INPUT STATE ###########*/

@@ -2,7 +2,7 @@ import { ButtonProps } from '../../atoms/button/Button.interface'
 
 export interface ButtonGroupProps {
     componentSize: 'small' | 'medium' | 'large';
-    color: 'primary' | 'secondary';
+    color: 'primary' | 'secondary' | 'tertiary';
     direction?: 'horizontal' | 'vertical';
     layout?: 'space-between' | 'center' ;
     fluid?: boolean;

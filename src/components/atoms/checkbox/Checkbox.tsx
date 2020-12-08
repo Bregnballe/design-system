@@ -6,7 +6,7 @@ import { CheckboxProps } from './Checkbox.interface';
 //import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
 
 
-export const Checkbox: React.FC<CheckboxProps> = ({asButton=false, children, checked, ...props}) => {
+export const Checkbox: React.FC<CheckboxProps> = ({asButton, children, checked, id, ...props}) => {
 
 
     /*########### CHANGE TODOITEM COMPLETE STATE ###########*/
@@ -41,7 +41,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({asButton=false, children, che
             {...props}
             asButton={asButton}
             checked={checked}
-            htmlFor={"checkbox"}
+            htmlFor={id}
             onMouseDown={handleMouseDown}
             onClick={handleClick}
             >
@@ -50,7 +50,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({asButton=false, children, che
                     onChange={handleChange}
                     onMouseDown={handleMouseDown}
                     type="checkbox"
-                    id={"checkbox"}
+                    id={id}
                     checked={checked}
                     tabIndex={0}
                 />

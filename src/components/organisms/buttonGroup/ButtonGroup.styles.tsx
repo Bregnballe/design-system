@@ -11,10 +11,7 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
         &:not(:first-child):not(:last-child) {
             border-radius: 0;
         }
-    
-        &:focus {
-            z-index: 1;
-        }
+
     }
 
 
@@ -28,6 +25,16 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
             
             &:not(:last-child) {
                 border-bottom-width: 0;
+
+                &:focus {
+                    border-bottom-width: 2px; 
+                    //adding border when focused
+                }
+
+                &:focus + button {
+                    border-top-width: 0px; 
+                    // removing border from next element
+                }
                 
                 &:not(:active):not(:focus) {
                     box-shadow: none; //removing boxshadow on top items when not active or focused      
@@ -53,6 +60,16 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
 
             &:not(:last-child) {
                 border-right-width: 0;
+
+                &:focus {
+                    border-right-width: 2px; 
+                    //adding border when focused
+                }
+
+                &:focus + button {
+                    border-left-width: 0px; 
+                    // removing border from next element
+                }
             }
 
             &:first-child {

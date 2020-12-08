@@ -23,10 +23,10 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
     }
 
     return (
-        <Accordion layout="column" fluid={true}  as="ul">
+        <Accordion direction="vertical" as="ul" componentSize="small" color="tertiary" fluid={true}>
         <Container layout="column" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={0}
             fluid={true}
             selected={selectedList[0]}
@@ -39,7 +39,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={1}
             fluid={true}
             selected={selectedList[1]}
@@ -52,7 +52,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={2}
             fluid={true}
             selected={selectedList[2]}
@@ -79,10 +79,10 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
     }
 
     return (
-        <Accordion layout="column" as="ul">
+        <Accordion direction="vertical" as="ul" componentSize="small" color="tertiary">
         <Container layout="row" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={0}
             selected={selectedList[0]}
             handleClick={handleClick}
@@ -94,7 +94,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
         </Container>
         <Container layout="row" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={1}
             selected={selectedList[1]}
             handleClick={handleClick}
@@ -106,7 +106,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
         </Container>
         <Container layout="row" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={2}
             selected={selectedList[2]}
             handleClick={handleClick}
@@ -132,10 +132,10 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
     }
 
     return (
-        <Accordion layout="column" fluid={true} as="ul">
+        <Accordion direction="horizontal" as="ul" componentSize="small" color="tertiary">
         <Container layout="column" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={0}
             selected={selectedList[0]}
             handleClick={handleClick}
@@ -148,7 +148,7 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={1}
             selected={selectedList[1]}
             handleClick={handleClick}
@@ -161,7 +161,7 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
-            color="tertiary"
+            color="quaternary"
             index={2}
             selected={selectedList[2]}
             handleClick={handleClick}

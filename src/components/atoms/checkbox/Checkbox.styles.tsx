@@ -79,6 +79,17 @@ export const LabelStyled = styled.label<CheckboxProps>`
     position: relative;
     cursor: pointer;
 
+    & > *:nth-child(2) {
+    margin-left: 4px;
+    }
+
+    ${({theme: {colors}}) =>
+        css`
+            &:focus-within > ${BoxStyled} {
+                box-shadow: 0px 0px 0px 3px ${lighten(0.1, colors.primary)};
+            } 
+        `
+    }     //When the hidden checkbox inside the label recieves focus
 
     /*########### SIZE ###########*/
     ${({theme: {borderWidth, borderRadius}, ...props}) =>
@@ -124,11 +135,6 @@ export const LabelStyled = styled.label<CheckboxProps>`
         `    
     }
 
-    &:focus-within > ${BoxStyled} {
-        box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 3px ${props => props.theme.colors.primary};
-    } //When the hidden checkbox inside the label recieves focus
-
-
     /*########### CHECK BOX AS BUTTON ###########*/
     ${({theme: {colors, shadowWidth}, ...props}) =>
             props.asButton === true ? 
@@ -150,7 +156,7 @@ export const LabelStyled = styled.label<CheckboxProps>`
                     box-shadow: none;
                 } 
                 &:focus-within {
-                    box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+                    box-shadow: 0px 0px 0px 3px ${lighten(0.1, colors.primary)};
                 } 
             ` 
             :
@@ -173,17 +179,14 @@ export const SpanStyled = styled.span<CheckboxProps>`
         props.componentSize === 'large' ? 
         css`
             font-size: 2rem;
-            padding-left: calc(8px*2);
         `
         : props.componentSize === 'medium' ?
         css`
             font-size: 1.5rem;
-            padding-left: calc(8px*1.5);
         ` 
         : 
         css `
             font-size: 1rem;
-            padding-left: 8px;
         `    
     }
 

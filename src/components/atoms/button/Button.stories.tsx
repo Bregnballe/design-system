@@ -16,7 +16,7 @@ decorators:  [(Story) => <Story/>]
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => {
-  return <Button {...args}><Icon color="primary" componentSize="small" name="check" /><span>Hey</span></Button>;
+  return <Button {...args}><span>Button</span></Button>;
 }
 
 
@@ -43,6 +43,16 @@ Tertiary.args = {
   fluid: false,
   layout: 'center'
 };
+
+
+export const Quaternary = Template.bind({});
+Quaternary.args = {
+  color: 'quaternary',
+  componentSize: 'small',
+  fluid: false,
+  layout: 'center'
+};
+
 
 
 export const IconButton: Story<ButtonProps> = (args) => {

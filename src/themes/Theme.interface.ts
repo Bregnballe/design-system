@@ -1,13 +1,14 @@
 export interface ThemeProps {
     colors: {
-      primary: String,
-      secondary: String,
-      tertiary: String,
-      neutral: String, 
+      primary: string,
+      secondary: string,
+      tertiary: string,
+      quaternary: string,
+      neutral: string, 
     },
-    bodyText: String,
-    borderRadius: String,
-    borderWidth: String,
-    shadowWidth: String
+    bodyText: string,
+    borderRadius: string,
+    borderWidth: string,
+    shadowWidth: string
   };
   

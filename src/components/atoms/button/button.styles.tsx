@@ -15,7 +15,7 @@ border-style:       solid;
 padding:            1em;
 font-weight:        500;
 border-radius:      ${props => props.theme.borderRadius};
-transition:         box-shadow 0.2s;
+transition:         box-shadow 0.2s, padding 0.2s;
 
 
 &:active {
@@ -25,6 +25,7 @@ padding-bottom:     calc(1em - ${props => props.theme.shadowWidth});
 
 &:focus {
 outline:            none; 
+z-index:            1;
 }
 
 & > *:nth-child(2) {
@@ -40,32 +41,39 @@ fill:               ${props => props.theme.colors.primary};
 /*########### COLOR ########### */
 ${({theme: {colors, shadowWidth}, ...props}) =>
 
-props.color === 'primary' ? 
+props.color === 'quaternary' ? 
 css`
-background-color:   ${colors.primary};
-border-color:       ${darken(0.1, colors.primary)};
-box-shadow:         inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.primary)};
-color:              white;
-
-&:hover {
-background-color:   ${lighten(0.05, colors.primary)};
-}
+background-color:   ${colors.quaternary};
+border-color:       ${colors.quaternary};
+color:              ${colors.primary};
 
 &:active {
-background-color:   ${darken(0.05, colors.primary)};
-box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.primary)};
+box-shadow:         none;
 }
 
 &:focus {
-box-shadow:         inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.primary)},  
-                    0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
-}
-
-& > svg { 
-fill:              white;
+box-shadow:         0px 0px 0px 3px ${lighten(0.1, colors.primary)};
 }
 
 `
+
+
+: props.color === 'tertiary' ? 
+css`
+background-color:   ${colors.quaternary};
+border-color:       ${colors.neutral};
+color:              ${colors.primary};
+
+&:active {
+box-shadow:         none;
+}
+
+&:focus {
+box-shadow:         0px 0px 0px 3px ${lighten(0.1, colors.primary)};
+}
+
+`
+
 
 : props.color === 'secondary' ?
 css`
@@ -78,6 +86,12 @@ color:              ${colors.primary};
 background-color:   ${lighten(0.05, colors.secondary)};
 }
 
+&:active:focus {
+background-color:   ${darken(0.05, colors.secondary)};
+box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)},
+                    0px 0px 0px 3px ${lighten(0.1, colors.primary)};
+}
+
 &:active {
 background-color:   ${darken(0.05, colors.secondary)};
 box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)};
@@ -85,22 +99,41 @@ box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.second
 
 &:focus {
 box-shadow:         inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)},  
-                    0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+                    0px 0px 0px 3px ${lighten(0.1, colors.primary)};
 }
 
 ` 
-: // props.color === 'tertiary' 
+
+
+: // DEFAULT: props.color === 'primary' 
 css`
-background-color:   ${colors.tertiary};
-border-color:       ${colors.tertiary};
-color:              ${colors.primary};
+background-color:   ${colors.primary};
+border-color:       ${darken(0.1, colors.primary)};
+box-shadow:         inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.primary)};
+color:              white;
+
+&:hover {
+background-color:   ${lighten(0.05, colors.primary)};
+}
+
+&:active:focus {
+background-color:   ${darken(0.05, colors.primary)};
+box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.primary)},
+                    0px 0px 0px 3px ${lighten(0.1, colors.primary)};
+}
 
 &:active {
-box-shadow:         none;
+background-color:   ${darken(0.05, colors.primary)};
+box-shadow:         inset 0px ${shadowWidth} 0px 0px ${darken(0.1, colors.primary)};
 }
 
 &:focus {
-box-shadow:         0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+box-shadow:         inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.primary)},  
+                    0px 0px 0px 3px ${lighten(0.1, colors.primary)};
+}
+
+& > svg { 
+fill:              white;
 }
 `
 }

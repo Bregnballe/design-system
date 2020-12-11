@@ -4,12 +4,11 @@ import { InputGroupStyled } from './InputGroup.styles';
 import { InputGroupProps } from './InputGroup.interface';
 
 
-export const InputGroup: React.FC<InputGroupProps> = ({children, textPlaceholder, ...rest}) => {
-
+export const InputGroup: React.FC<InputGroupProps> = ({children, ...rest}) => {
 
     return (
-    <InputGroupStyled textPlaceholder={textPlaceholder} {...rest}>
-        {children}
-    </InputGroupStyled>
+        <InputGroupStyled {...rest}>
+            {children}
+        </InputGroupStyled>
     )
 };

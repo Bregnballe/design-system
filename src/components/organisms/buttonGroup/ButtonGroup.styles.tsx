@@ -8,7 +8,7 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
         position: relative;
         margin: 0;
 
-        &:not(:first-child):not(:last-child) {
+        &:not(:first-of-type):not(:last-of-type) {
             border-radius: 0;
         }
 
@@ -23,16 +23,16 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
         
         & > button {
             
-            &:not(:last-child) {
+            &:not(:last-of-type) {
                 border-bottom-width: 0;
 
                 &:focus {
-                    border-bottom-width: 2px; 
+                    border-bottom-width:  0.167em; 
                     //adding border when focused
                 }
 
                 &:focus + button {
-                    border-top-width: 0px; 
+                    border-top-width: 0; 
                     // removing border from next element
                 }
                 
@@ -41,12 +41,12 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
                 }
             }
             
-            &:first-child {
+            &:first-of-type {
                 border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
             }
         
-            &:last-child {
+            &:last-of-type {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
             }
@@ -58,26 +58,26 @@ export const ButtonGroupStyled = styled.div<ButtonGroupProps>`
 
         & > button {
 
-            &:not(:last-child) {
+            &:not(:last-of-type) {
                 border-right-width: 0;
 
                 &:focus {
-                    border-right-width: 2px; 
+                    border-right-width: 0.167em; 
                     //adding border when focused
                 }
 
                 &:focus + button {
-                    border-left-width: 0px; 
+                    border-left-width: 0; 
                     // removing border from next element
                 }
             }
 
-            &:first-child {
+            &:first-of-type {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
         
-            &:last-child {
+            &:last-of-type {
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
         }

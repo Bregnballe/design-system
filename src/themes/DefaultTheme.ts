@@ -9,8 +9,8 @@ export const DefaultTheme:ThemeProps = {
       neutral: "#d0d0d0",
     },
     bodyText: "1rem",
-    borderRadius: "4px",
-    borderWidth: "2px",
-    shadowWidth: "2px"
+    borderRadius: "0.333em",
+    borderWidth: "0.167em",
+    shadowWidth: "0.167em"
   };
   

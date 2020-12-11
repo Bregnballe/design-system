@@ -1,6 +1,6 @@
-export interface ButtonGroupProps {
-    children: React.ReactNode;
-    color: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+export interface CheckboxGroupProps {
+    asButton?: boolean;
+    children?: React.ReactNode;
     componentSize: 'small' | 'medium' | 'large';
     direction?: 'horizontal' | 'vertical';
     fluid?: boolean;

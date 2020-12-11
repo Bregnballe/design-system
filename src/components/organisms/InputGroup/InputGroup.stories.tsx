@@ -17,13 +17,15 @@ export default {
 
 
 export const DefaultInputGroup: Story = (args) => (
-    <MyInputGroup componentSize={args.componentSize} color={args.color} textPlaceholder={args.textPlaceholder}/>   
+    <MyInputGroup componentSize={args.componentSize} color={args.color} textPlaceholder={args.textPlaceholder} fluid={args.fluid} textAlign={args.textAlign}/>   
 );    
 
 DefaultInputGroup.args = { 
     componentSize: "small", 
     color: "primary", 
-    textPlaceholder: "Type something" 
+    textPlaceholder: "Type something",
+    fluid: false,
+    textAlign: 'left',
 };
 
 

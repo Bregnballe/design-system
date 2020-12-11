@@ -1,6 +1,8 @@
 export interface InputGroupProps {
-    componentSize: 'small' | 'medium' | 'large';
-    color: 'primary' | 'secondary';
-    textPlaceholder?: string;
     children?: React.ReactNode;
+    color: 'primary' | 'secondary';
+    componentSize: 'small' | 'medium' | 'large';
+    fluid?: boolean;
+    textAlign?: 'left' | 'center' | 'right';
+    textPlaceholder?: string;
 } 

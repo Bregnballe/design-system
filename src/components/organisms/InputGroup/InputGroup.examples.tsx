@@ -5,7 +5,7 @@ import {InputGroup} from './InputGroup'
 import {InputGroupProps} from './InputGroup.interface'
 
 
-export const MyInputGroup: React.FC<InputGroupProps> = ({color, componentSize, textPlaceholder }) => {
+export const MyInputGroup: React.FC<InputGroupProps> = ({fluid, ...rest }) => {
 
     const [inputState, setInputState] = useState<string>("");
 
@@ -18,9 +18,9 @@ export const MyInputGroup: React.FC<InputGroupProps> = ({color, componentSize, t
     };
 
     return (
-        <InputGroup componentSize={componentSize} color={color}>
-            <Input componentSize={componentSize} textPlaceholder={textPlaceholder} handleChange={handleChange} />
-            <Button componentSize={componentSize} color={color} handleClick={handleClick}>
+        <InputGroup fluid={fluid} {...rest }>
+            <Input fluid={fluid} {...rest } handleChange={handleChange} />
+            <Button {...rest } handleClick={handleClick}>
                 <span>Send</span>
             </Button>   
         </InputGroup>
@@ -29,7 +29,7 @@ export const MyInputGroup: React.FC<InputGroupProps> = ({color, componentSize, t
 }
 
 
-export const InputGroupReversed: React.FC<InputGroupProps> = ({color, componentSize, textPlaceholder }) => {
+export const InputGroupReversed: React.FC<InputGroupProps> = ({fluid, ...rest }) => {
 
     const [inputState, setInputState] = useState<string>("");
 
@@ -42,11 +42,11 @@ export const InputGroupReversed: React.FC<InputGroupProps> = ({color, componentS
     };
 
     return (
-        <InputGroup componentSize={componentSize} color={color}>
-            <Button componentSize={componentSize} color={color} handleClick={handleClick}>
+        <InputGroup fluid={fluid} {...rest }>
+            <Button {...rest } handleClick={handleClick}>
                 <span>Send</span>
             </Button>   
-            <Input componentSize={componentSize} textPlaceholder={textPlaceholder} handleChange={handleChange} />
+            <Input fluid={fluid} {...rest } handleChange={handleChange} />
         </InputGroup>
     )
 

@@ -16,13 +16,15 @@ decorators:  [(Story) => <Story/>]
 } as Meta;
 
 export const DefaultCheckbox: Story<CheckboxProps> = (args) => {
-    return <MyLabelCheckbox asButton={args.asButton} checked={args.checked} componentSize={args.componentSize} />;
+    return <MyLabelCheckbox asButton={args.asButton} checked={args.checked} componentSize={args.componentSize} layout={args.layout} fluid={args.fluid} />;
 }
 
 DefaultCheckbox.args = {
     componentSize: 'small',
     asButton: false,
     checked: false,
+    layout: 'flex-start',
+    fluid: false,
 };
 
 export const Checkbox: Story<CheckboxProps> = () => {

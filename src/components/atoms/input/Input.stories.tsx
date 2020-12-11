@@ -24,4 +24,6 @@ export const DefaultInput = Template.bind({}); //Template.bind({}) makes a copy 
 DefaultInput.args = {
     textPlaceholder: 'Type something',
     componentSize: 'small',
+    fluid: false,
+    textAlign: 'left',
 };

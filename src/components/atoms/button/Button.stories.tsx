@@ -56,7 +56,7 @@ Quaternary.args = {
 
 
 export const IconButton: Story<ButtonProps> = (args) => {
-  return <Button {...args}><Icon color="primary" componentSize="small" name="check" /></Button>;
+  return <Button {...args}><Icon color="primary" name="check" /></Button>;
 }
 
 IconButton.args = {
@@ -66,7 +66,7 @@ IconButton.args = {
 
 
 export const IconAndTextButton: Story<ButtonProps> = (args) => {
-  return <Button {...args}><Icon color="primary" componentSize="small" name="check" /><span>Hey</span></Button>;
+  return <Button {...args}><Icon color="primary" name="check" /><span>Hey</span></Button>;
 }
 
 IconAndTextButton.args = {

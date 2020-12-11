@@ -12,8 +12,8 @@ export const InputStyled = styled.input.attrs({ type: "radio" })`
     clip-path: circle(0%);
     padding: 0;
     border: 0;
-    width: 20px;
-    height: 20px;
+    width: 0;
+    height: 0;
     overflow: hidden;
 `;
 
@@ -27,9 +27,11 @@ export const BoxStyled = styled.div<RadioButtonProps>`
     vertical-align: middle;
     background-color: #fff;
     border-style: solid;
-    border-radius: 100%;
-    transition: box-shadow 0.2s;
-
+    border-radius: 1em;
+    border-width: 0.167em;
+    width: 1.667em;
+    height: 1.667em;
+    transition: box-shadow 0.2s, border-color 0.2s;
 
     /*########### CHECKED STATUS ###########*/
     ${({theme: {colors}, ...props}) =>
@@ -44,44 +46,52 @@ export const BoxStyled = styled.div<RadioButtonProps>`
 
     }    
 
-
-    /*########### SIZE ###########*/
-    ${({theme: {borderWidth}, ...props}) =>
-        props.componentSize === 'large' ? 
-        css`
-            border-width: calc(${borderWidth}*2);
-            width: calc(20px*2);
-            height: calc(20px*2);
-        `
-        : props.componentSize === 'medium' ?
-        css`
-            border-width: calc(${borderWidth}*1.5);
-            width: calc(20px*1.5);
-            height: calc(20px*1.5);
-        ` 
-        : 
-        css `
-            border-width: ${borderWidth};
-            width: 20px;
-            height: 20px;
-        `    
-    }
-
 `;
 
-/*########### STYLING LABEL AS CHECKBOX ###########*/
+/*########### STYLING LABEL AS RADIO BUTTON ###########*/
 export const LabelStyled = styled.label<RadioButtonProps>`
     display: inline-flex;
     vertical-align: middle;
     align-items: center;
     position: relative;
     cursor: pointer;
+    padding: 1em;
+    border-radius: 0.333em;
+    border-width: 0.167em;
+    transition: box-shadow 0.2s, padding 0.2s;
+    justify-content:    ${props => props.layout};
 
     & > *:nth-child(2) {
-    margin-left: 4px;
-}
+    margin-left: 0.5em;
+    }
 
+    &:focus-within {
+    z-index: 1;    
+    }
 
+    ${({theme: {colors}}) =>
+        css`
+            &:focus-within > ${BoxStyled} {
+                box-shadow: 0px 0px 0px 3px ${lighten(0.1, colors.primary)};
+            } 
+        `
+    }     //When the hidden radio button inside the label recieves focus
+
+    /*########### SIZE ###########*/
+    ${({theme: {borderWidth, borderRadius}, ...props}) =>
+        props.componentSize === 'large' ? 
+        css`
+            font-size: 2rem;
+        `
+        : props.componentSize === 'medium' ?
+        css`
+            font-size: 1.5rem;
+        ` 
+        : 
+        css `
+            font-size: 1rem;
+        `    
+    }    
 
 
 
@@ -101,23 +111,16 @@ export const LabelStyled = styled.label<RadioButtonProps>`
         `    
     }
 
-    &:focus-within > ${BoxStyled} {
-        box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 3px ${props => props.theme.colors.primary};
-    } //When the hidden checkbox inside the label recieves focus
-
-
-    /*########### CHECK BOX AS BUTTON ###########*/
-    ${({theme: {colors, borderRadius, borderWidth, shadowWidth}, ...props}) =>
-            props.asButton === true ? 
+    /*########### RADIO BUTTON AS BUTTON ###########*/
+    ${({theme: {colors, shadowWidth}, ...props}) =>
+        props.asButton === true ? 
             css`
-                padding: 12px;
+                border-style: solid;
+                border-color: ${darken(0.1, colors.secondary)};
                 background-color: ${colors.secondary};
-                border: ${borderWidth} solid ${darken(0.1, colors.secondary)};
-                border-radius: ${borderRadius};
-                box-shadow: inset 0px -${shadowWidth} 0px 0px ${darken(0.1, colors.secondary)};
+                box-shadow: inset 0 -${shadowWidth} 0 0 ${darken(0.1, colors.secondary)};
                 &:hover {
                     background-color: ${lighten(0.05, colors.secondary)};
-                    border-color: ${darken(0.1, colors.secondary)};
                 }
                 &:active {
                     background-color: ${darken(0.05, colors.secondary)};
@@ -129,41 +132,27 @@ export const LabelStyled = styled.label<RadioButtonProps>`
                     box-shadow: none;
                 } 
                 &:focus-within {
-                    box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 3px ${colors.primary};
+                    box-shadow: inset 0 -${shadowWidth} 0 0 ${darken(0.1, colors.secondary)},  
+                    0 0 0 0.25em ${lighten(0.1, colors.primary)};
                 } 
+}
             ` 
             :
             css`
-                padding: 0px;
                 background-color: transparent;
                 border-radius: 0px;
             ` 
     } 
 
-`
 
-/*########### STYLING THE NEW LABEL ###########*/
+    /*########### FLUID ###########*/
+    ${props =>
 
-export const SpanStyled = styled.span<RadioButtonProps>`
-    pointer-events: none; //make sure click hits parent (Label)
-
-        /*########### SIZE ###########*/
-        ${props =>
-        props.componentSize === 'large' ? 
-        css`
-            font-size: 2rem;
-            padding-left: calc(8px*2);
-        `
-        : props.componentSize === 'medium' ?
-        css`
-            font-size: 1.5rem;
-            padding-left: calc(8px*1.5);
-        ` 
-        : 
-        css `
-            font-size: 1rem;
-            padding-left: 8px;
-        `    
+    props.fluid && 
+    css`
+    width:              100%;
+    text-align:         center;
+    `
     }
 
 `;

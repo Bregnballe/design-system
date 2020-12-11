@@ -3,7 +3,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     color: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
     componentSize?: 'small' | 'medium' | 'large';
     fluid?: boolean;
-    layout?: 'space-between' | 'center' ;
+    layout?: 'space-between' | 'center' | 'flex-start' | 'flex-end';
     handleClick?: () => void;
     handleMouseDown?: () => void;
 } 

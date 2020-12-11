@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {Accordion} from './Accordion'
-import {ToggleButton} from '../../atoms/togglebutton/ToggleButton'
+import {ToggleButton} from '../../atoms/toggleButton/ToggleButton'
 import {Container} from '../../atoms/container/Container'
 import {Icon} from '../../atoms/icon/Icon'
 
@@ -19,7 +19,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
     })
 
     const handleClick = (index:number|undefined) => {
-        toggleIndex(index)
+        index !== undefined && toggleIndex(index)
     }
 
     return (
@@ -33,7 +33,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[0] ? <Icon color="primary" componentSize="small" name="chevronDown" flip="vertical" /> : <Icon color="primary" componentSize="small" name="chevronDown" />}
+                {selectedList[0] ? <Icon color="primary" name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
             </ToggleButton>
             {selectedList[0] && <Container padding="small" >Hey again</Container>}
         </Container>
@@ -46,7 +46,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[1] ? <Icon color="primary" componentSize="small" name="chevronDown" flip="vertical" /> : <Icon color="primary" componentSize="small" name="chevronDown" />}
+                {selectedList[1] ? <Icon color="primary"  name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
             </ToggleButton>
             {selectedList[1] && <Container padding="small" >Hey again</Container>}
         </Container>
@@ -59,7 +59,7 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[2] ? <Icon color="primary" componentSize="small" name="chevronDown" flip="vertical" /> : <Icon color="primary" componentSize="small" name="chevronDown" />}
+                {selectedList[2] ? <Icon color="primary" name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
             </ToggleButton>
             {selectedList[2] && <Container padding="small" >Hey again</Container>}
         </Container>
@@ -75,7 +75,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
     })
 
     const handleClick = (index:number|undefined) => {
-        toggleIndex(index)
+        index !== undefined && toggleIndex(index)
     }
 
     return (
@@ -88,7 +88,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[0] ? <Icon color="primary" componentSize="small" name="chevronRight"  flip="horizontal" /> : <Icon color="primary" componentSize="small"  name="chevronRight" />}
+                {selectedList[0] ? <Icon color="primary" name="chevronRight"  flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
             </ToggleButton>
             {selectedList[0] && <Container padding="small" >Hey again</Container>}
         </Container>
@@ -100,7 +100,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[1] ? <Icon color="primary" componentSize="small" name="chevronRight" flip="horizontal" /> : <Icon color="primary" componentSize="small" name="chevronRight" />}
+                {selectedList[1] ? <Icon color="primary"  name="chevronRight" flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
             </ToggleButton>
             {selectedList[1] && <Container padding="small" >Hey again</Container>}
         </Container>
@@ -112,7 +112,7 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[2] ? <Icon color="primary" componentSize="small" name="chevronRight" flip="horizontal"   /> : <Icon color="primary" componentSize="small"   name="chevronRight" />}
+                {selectedList[2] ? <Icon color="primary"  name="chevronRight" flip="horizontal"   /> : <Icon color="primary"    name="chevronRight" />}
             </ToggleButton>
             {selectedList[2] && <Container padding="small" >Hey again</Container>}
         </Container>
@@ -128,7 +128,7 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
     })
 
     const handleClick = (index:number|undefined) => {
-        toggleIndex(index)
+        index !== undefined && toggleIndex(index)
     }
 
     return (
@@ -141,7 +141,7 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[0] ? <Icon color="primary" componentSize="small" name="chevronRight"  flip="horizontal" /> : <Icon color="primary" componentSize="small"  name="chevronRight" />}
+                {selectedList[0] ? <Icon color="primary" name="chevronRight"  flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
                 {selectedList[0] && <Container padding="small" >Hey again</Container>}
             </ToggleButton>
             
@@ -154,7 +154,7 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[1] ? <Icon color="primary" componentSize="small" name="chevronRight" flip="horizontal" /> : <Icon color="primary" componentSize="small" name="chevronRight" />}
+                {selectedList[1] ? <Icon color="primary" name="chevronRight" flip="horizontal" /> : <Icon color="primary" name="chevronRight" />}
                 {selectedList[1] && <Container padding="small" >Hey again</Container>}
             </ToggleButton>
             
@@ -167,7 +167,7 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[2] ? <Icon color="primary" componentSize="small" name="chevronRight" flip="horizontal"   /> : <Icon color="primary" componentSize="small"   name="chevronRight" />}
+                {selectedList[2] ? <Icon color="primary"  name="chevronRight" flip="horizontal"   /> : <Icon color="primary"  name="chevronRight" />}
                 {selectedList[2] && <Container padding="none" fluid={true} >Hey again</Container>}
             </ToggleButton>
         </Container>

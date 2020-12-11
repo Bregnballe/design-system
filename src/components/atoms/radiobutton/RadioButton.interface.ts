@@ -1,10 +1,13 @@
 export interface RadioButtonProps {
+    asButton?: boolean;
     checked: boolean;
     componentSize: 'small' | 'medium' | 'large';
-    label?: string;
-    hasLabel: boolean;
-    asButton?: boolean;
+    fluid?: boolean;
+    groupName?: string;
+    id?: string;
+    layout?: 'space-between' | 'center' | 'flex-end' | 'flex-start';
+    value?: string;
+    handleChange?: (val:string) => void;
     handleClick?: () => void;
     handleMouseDown?: () => void;
-    handleChange?: () => void;
 } 

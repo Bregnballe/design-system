@@ -45,9 +45,9 @@ FluidButtonGroup.args = { fluid: true, componentSize: "small", color: "tertiary"
 
 export const IconButtonGroup: Story<ButtonGroupProps> = (args) => (
   <ButtonGroup {...args}>
-    <Button {...args}><Icon name="check" componentSize="small" color="primary"/></Button>
-    <Button {...args}><Icon name="check" componentSize="small" color="primary"/></Button>
-    <Button {...args}><Icon name="check" componentSize="small" color="primary"/></Button>
+    <Button {...args}><Icon name="check" color="primary"/></Button>
+    <Button {...args}><Icon name="check" color="primary"/></Button>
+    <Button {...args}><Icon name="check" color="primary"/></Button>
   </ButtonGroup>
 );    
 

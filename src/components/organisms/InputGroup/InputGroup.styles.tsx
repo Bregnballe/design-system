@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 import { InputGroupProps } from './InputGroup.interface';
 
 export const InputGroupStyled = styled.div<InputGroupProps>`
@@ -14,6 +14,17 @@ export const InputGroupStyled = styled.div<InputGroupProps>`
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
+
+
+
+/*########### FLUID ###########*/
+${props =>
+
+props.fluid && 
+css`
+width:              100%;
+`
+}
 
 
 `;

@@ -1,9 +1,9 @@
 export interface AccordionProps {
-    componentSize: 'small' | 'medium' | 'large';
-    color: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
-    direction?: 'horizontal' | 'vertical';
-    layout?: 'space-between' | 'center' ;
-    fluid?: boolean;
-    children: React.ReactNode;
     as?: any;
+    children: React.ReactNode;
+    color: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+    componentSize: 'small' | 'medium' | 'large';
+    direction?: 'horizontal' | 'vertical';
+    fluid?: boolean;
+    layout?: 'space-between' | 'center' ;
 } 

@@ -2,28 +2,36 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { RadioButton } from './RadioButton';
+import { MyRadioButton, MyLabelRadioButton, MyLabelRadioButtonReversed } from './RadioButton.examples';
 import { RadioButtonProps } from './RadioButton.interface';
 
 export default {
     title: 'Atoms/RadioButton',
-    component: RadioButton,
+    component: MyLabelRadioButton,
     argTypes: {
         //backgroundColor: { control: 'color' },
-        componentSize: { control: {type: 'select'}}
+        //componentSize: { control: {type: 'select'}}
     },
 decorators:  [(Story) => <Story/>]
 } as Meta;
 
-const Template: Story<RadioButtonProps> = (args) => {
-    return <RadioButton {...args} />;
+export const DefaultRadioButton: Story<RadioButtonProps> = (args) => {
+    return <MyLabelRadioButton asButton={args.asButton} checked={args.checked} componentSize={args.componentSize} layout={args.layout} fluid={args.fluid}/>;
 }
-
-
-export const DefaultRadioButton = Template.bind({}); //Template.bind({}) makes a copy of the function
 
 DefaultRadioButton.args = {
     componentSize: 'small',
-    label: 'Label',
-    hasLabel: true,
+    asButton: false,
+    checked: false,
+    layout: 'flex-start',
+    fluid: false,
 };
+
+
+export const RadioButton: Story<RadioButtonProps> = () => {
+    return <MyRadioButton checked={false} componentSize="small" />;
+}
+
+export const RadioButtonReversed: Story<RadioButtonProps> = () => {
+    return <MyLabelRadioButtonReversed checked={false} componentSize="small"/>;
+}

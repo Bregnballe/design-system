@@ -6,14 +6,18 @@ import { CheckboxProps } from './Checkbox.interface';
 //import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
 
 
-export const Checkbox: React.FC<CheckboxProps> = ({asButton, children, checked, id, ...props}) => {
+export const Checkbox: React.FC<CheckboxProps> = ({children, id, index, ...rest}) => {
 
 
-    /*########### CHANGE TODOITEM COMPLETE STATE ###########*/
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-        let targetValue = e.currentTarget.checked;
-
-        props.handleChange && props.handleChange(targetValue)
+        if (index === undefined) {
+            rest.handleChange && rest.handleChange(e.currentTarget.checked)
+            //if no index, run callback function w currentTarget.checked as argument
+            } else {
+            rest.handleChange && rest.handleChange(index)
+            //else run callback function with index as argument
+            console.log(index)
+            }
 
     };
 
@@ -38,9 +42,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({asButton, children, checked, 
 
     return (
             <LabelStyled
-            {...props}
-            asButton={asButton}
-            checked={checked}
+            {...rest}
             htmlFor={id}
             onMouseDown={handleMouseDown}
             onClick={handleClick}
@@ -51,7 +53,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({asButton, children, checked, 
                     onMouseDown={handleMouseDown}
                     type="checkbox"
                     id={id}
-                    checked={checked}
                     tabIndex={0}
                 />
             </LabelStyled> 

@@ -2,7 +2,7 @@ import React from 'react'
 import {ToggleButtonStyled} from './ToggleButton.styles'
 import {ToggleButtonProps} from './ToggleButton.interface'
 
-export const ToggleButton: React.FC<ToggleButtonProps> = ({fluid, index = undefined, selected = false, componentSize, children, ...rest}) => {
+export const ToggleButton: React.FC<ToggleButtonProps> = ({children, index, ...rest}) => {
   
     const handleClick = () => {
     if (index === undefined) {
@@ -20,16 +20,13 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({fluid, index = undefi
   };
 
     return (
-        <ToggleButtonStyled
-            role="button"
-            onClick={handleClick}
-            onMouseDown={handleMouseDown}
-            selected={selected}
-            componentSize={componentSize}
-            fluid={fluid}
-            {...rest} 
-        >
-          { children }
-        </ToggleButtonStyled>
+      <ToggleButtonStyled
+        role="button"
+        onClick={handleClick}
+        onMouseDown={handleMouseDown}
+        {...rest} 
+      >
+        { children }
+      </ToggleButtonStyled>
     )
 }

@@ -5,7 +5,13 @@ import { RadioButtonProps } from './RadioButton.interface';
 
 //import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
 
-export const RadioButton: React.FC<RadioButtonProps> = ({children, groupName,value, id, ...rest}) => {
+export const RadioButton: React.FC<RadioButtonProps> = ({
+    children, 
+    groupName,
+    id, 
+    value, 
+    ...rest
+}) => {
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         let targetValue = e.currentTarget.value;

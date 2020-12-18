@@ -4,7 +4,7 @@ import { ButtonProps } from './Button.interface';
 
 
   /*########### COMPONENT ###########*/
-export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({ ariaLabel, children, ...rest }) => {
 
   const handleClick = () => {
   if (rest.handleClick) {
@@ -17,8 +17,11 @@ export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
     // buttons receive focus on mousedown, so preventing that is as simple as using e.preventDefault()
   };
 
+  console.log(rest);
+
   return (
     <ButtonStyled 
+      aria-label={ariaLabel}
       type="button" 
       {...rest} 
       onClick={handleClick} 

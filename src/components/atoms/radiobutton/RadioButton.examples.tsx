@@ -17,7 +17,7 @@ export const MyLabelRadioButton: React.FC<RadioButtonProps> = ({componentSize, a
 
 
     return (
-        <RadioButton asButton={asButton} layout={layout} fluid={fluid} id="1" value="1" checked={radioButtonState === "1" } componentSize={componentSize} handleChange={handleChange}> 
+        <RadioButton asButton={asButton} layout={layout} fluid={fluid} id="1" value="1" checked={radioButtonState === "1"} componentSize={componentSize} handleChange={handleChange}> 
             <BoxStyled
             componentSize={componentSize}
             checked={radioButtonState === "1" }
@@ -41,7 +41,7 @@ export const MyRadioButton: React.FC<RadioButtonProps> = ({componentSize, asButt
 
 
     return (
-        <RadioButton asButton={asButton} layout={layout} fluid={fluid} id="2" value="2" checked={radioButtonState === "2" } componentSize={componentSize} handleChange={handleChange}> 
+        <RadioButton asButton={asButton} layout={layout} fluid={fluid} id="2" value="2" checked={radioButtonState === "2"} componentSize={componentSize} handleChange={handleChange}> 
             <BoxStyled
             componentSize={componentSize}
             checked={radioButtonState === "2"}

@@ -1,11 +1,15 @@
 import React, { FC, useState } from 'react';
 import { InputProps } from './Input.interface';
 import { InputStyled } from './Input.styled';
+import { LabelStyled } from './Input.styled';
+import { DivStyled } from './Input.styled';
 
 
     /*########### COMPONENT ###########*/
-export const Input: FC<InputProps> = ({textPlaceholder, textAlign, fluid, componentSize, ...rest}) => {
+export const Input: FC<InputProps> = ({textPlaceholder, textAlign, fluid, id, componentSize, hasLabel, ...rest}) => {
     const [inputState, setInputState] = useState<string>("");
+
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setInputState(e.currentTarget.value);
@@ -22,6 +26,9 @@ export const Input: FC<InputProps> = ({textPlaceholder, textAlign, fluid, compon
     };
 
     return (
-        <InputStyled value={inputState} textAlign={textAlign} fluid={fluid} componentSize={componentSize} placeholder={textPlaceholder}  onKeyDown={handleKeyDown} onChange={handleChange}  />
+        <DivStyled fluid={fluid} componentSize={componentSize}>
+        <InputStyled aria-invalid={false} aria-labelledby={id} value={inputState} textAlign={textAlign} fluid={fluid} componentSize={componentSize} placeholder={textPlaceholder}  onKeyDown={handleKeyDown} onChange={handleChange}  />
+        {hasLabel && <LabelStyled id={id} textAlign={textAlign}>Type something</LabelStyled>}
+        </DivStyled>
     );
 };

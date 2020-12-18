@@ -59,7 +59,7 @@ export const LabelStyled = styled.label<CheckboxProps>`
     padding: 1em;
     border-radius: 0.333em;
     border-width: 0.167em;
-    justify-content:    ${props => props.layout};
+    justify-content: ${props => props.layout};
     transition: box-shadow 0.2s, padding 0.2s;
 
 

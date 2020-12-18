@@ -1,4 +1,4 @@
 export interface LabelProps {
     children: React.ReactNode;
-    componentSize: 'small' | 'medium' | 'large';
+    componentSize?: 'small' | 'medium' | 'large';
 } 

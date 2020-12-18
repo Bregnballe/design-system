@@ -6,7 +6,12 @@ import { CheckboxProps } from './Checkbox.interface';
 //import { InputStyled, LabelStyled, BoxStyled, SpanStyled } from "./Checkbox.styles";
 
 
-export const Checkbox: React.FC<CheckboxProps> = ({children, id, index, ...rest}) => {
+export const Checkbox: React.FC<CheckboxProps> = ({
+    children, 
+    id, 
+    index, 
+    ...rest
+}) => {
 
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {

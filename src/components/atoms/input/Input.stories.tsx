@@ -22,8 +22,22 @@ const Template: Story<InputProps> = (args) => {
 
 export const DefaultInput = Template.bind({}); //Template.bind({}) makes a copy of the function
 DefaultInput.args = {
-    textPlaceholder: 'Type something',
     componentSize: 'small',
     fluid: false,
     textAlign: 'left',
+    hasLabel: true,
+    id: "1",
+    textPlaceholder: " "
+        //TextPlaceholder is set to a string with a space by default, so we can use css :placeholder-shown regardless of there being a visual one
 };
+
+export const NoLabelInput = Template.bind({}); //Template.bind({}) makes a copy of the function
+NoLabelInput.args = {
+    componentSize: 'small',
+    fluid: false,
+    textAlign: 'left',
+    hasLabel: false,
+    id: "2",
+    textPlaceholder: "Type something"
+};
+

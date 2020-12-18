@@ -25,5 +25,5 @@ DefaultRadioButtonGroup.args = {
     componentSize: "small", 
     asButton: false,
     fluid: false,
-    layout: "center",
+    layout: "flex-start",
 };

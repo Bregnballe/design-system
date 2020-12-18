@@ -61,6 +61,7 @@ export const IconButton: Story<ButtonProps> = (args) => {
 
 IconButton.args = {
   color: 'primary',
+  ariaLabel: 'Check'
 };
 
 

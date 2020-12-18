@@ -15,6 +15,17 @@ export const InputGroupStyled = styled.div<InputGroupProps>`
         border-bottom-left-radius: 0;
     }
 
+    & > :first-child > input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    & > :last-child > input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+
 
 
 /*########### FLUID ###########*/

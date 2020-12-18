@@ -12,6 +12,8 @@ interface AccordionProps {
     reducer?: () => any[];
 };
 
+const data = ["KaLabel1", "label2", "Label3"]
+
 
 export const MyCheckboxGroup: React.FC<CheckboxGroupProps> = ({reducer = () => {}, ...props}) => {
 
@@ -24,35 +26,22 @@ export const MyCheckboxGroup: React.FC<CheckboxGroupProps> = ({reducer = () => {
             arg !== undefined && toggleIndex(arg)
         }
 
+    const checkboxes = data.map((data, i) => 
+        <Checkbox {...props} id={data} index={i} checked={selectedList.includes(i)} handleChange={handleChange}> 
+            <BoxStyled
+            {...props}
+            checked={selectedList.includes(i)}
+            >
+                { selectedList.includes(i) && <Icon name="check" color="primary" animation={true}/> }
+            </BoxStyled>    
+            <Label {...props}>{data}</Label>
+        </Checkbox>
+
+    )    
+
     return (
         <CheckboxGroup {...props}>
-            <Checkbox {...props} id="0" index={0} checked={selectedList[0]} handleChange={handleChange}> 
-            <BoxStyled
-            {...props}
-            checked={selectedList[0]}
-            >
-                { selectedList[0] && <Icon name="check" color="primary" animation={true}/> }
-            </BoxStyled>    
-            <Label {...props}>Label</Label>
-        </Checkbox>
-        <Checkbox {...props} id="1" index={1} checked={selectedList[1]} handleChange={handleChange}> 
-            <BoxStyled
-            {...props}
-            checked={selectedList[1]}
-            >
-                { selectedList[1] && <Icon name="check" color="primary" animation={true}/> }
-            </BoxStyled>  
-            <Label {...props}>Label</Label>  
-        </Checkbox>
-        <Checkbox {...props} id="2" index={2} checked={selectedList[2]} handleChange={handleChange}> 
-            <BoxStyled
-            {...props}
-            checked={selectedList[2]}
-            >
-                { selectedList[2] && <Icon name="check" color="primary" animation={true}/> }
-            </BoxStyled>  
-            <Label {...props}>Label</Label>  
-        </Checkbox>
+            {checkboxes}
         </CheckboxGroup>
 
     )

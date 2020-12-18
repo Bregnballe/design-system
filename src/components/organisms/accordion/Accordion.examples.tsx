@@ -26,42 +26,45 @@ export const AccordionRow: React.FC<AccordionProps> = ({reducer = () => {}}) => 
         <Accordion direction="vertical" as="ul" componentSize="small" color="tertiary" fluid={true}>
         <Container layout="column" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(0)}
             color="quaternary"
             index={0}
             fluid={true}
-            selected={selectedList[0]}
+            selected={selectedList.includes(0)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[0] ? <Icon color="primary" name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
+                {selectedList.includes(0) ? <Icon color="primary" name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
             </ToggleButton>
-            {selectedList[0] && <Container padding="small" >Hey again</Container>}
+            {selectedList.includes(0) && <Container padding="small" >Hey again</Container>}
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(1)}
             color="quaternary"
             index={1}
             fluid={true}
-            selected={selectedList[1]}
+            selected={selectedList.includes(1)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[1] ? <Icon color="primary"  name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
+                {selectedList.includes(1) ? <Icon color="primary"  name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
             </ToggleButton>
-            {selectedList[1] && <Container padding="small" >Hey again</Container>}
+            {selectedList.includes(1) && <Container padding="small" >Hey again</Container>}
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(2)}
             color="quaternary"
             index={2}
             fluid={true}
-            selected={selectedList[2]}
+            selected={selectedList.includes(2)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[2] ? <Icon color="primary" name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
+                {selectedList.includes(2) ? <Icon color="primary" name="chevronDown" flip="vertical" /> : <Icon color="primary" name="chevronDown" />}
             </ToggleButton>
-            {selectedList[2] && <Container padding="small" >Hey again</Container>}
+            {selectedList.includes(2) && <Container padding="small" >Hey again</Container>}
         </Container>
         </Accordion>
     )
@@ -82,39 +85,42 @@ export const AccordionColumn: React.FC<AccordionProps> = ({reducer = () => {}}) 
         <Accordion direction="vertical" as="ul" componentSize="small" color="tertiary">
         <Container layout="row" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(0)}
             color="quaternary"
             index={0}
-            selected={selectedList[0]}
+            selected={selectedList.includes(0)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[0] ? <Icon color="primary" name="chevronRight"  flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
+                {selectedList.includes(0) ? <Icon color="primary" name="chevronRight"  flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
             </ToggleButton>
-            {selectedList[0] && <Container padding="small" >Hey again</Container>}
+            {selectedList.includes(0) && <Container padding="small" >Hey again</Container>}
         </Container>
         <Container layout="row" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(1)}
             color="quaternary"
             index={1}
-            selected={selectedList[1]}
+            selected={selectedList.includes(1)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[1] ? <Icon color="primary"  name="chevronRight" flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
+                {selectedList.includes(1) ? <Icon color="primary"  name="chevronRight" flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
             </ToggleButton>
-            {selectedList[1] && <Container padding="small" >Hey again</Container>}
+            {selectedList.includes(1) && <Container padding="small" >Hey again</Container>}
         </Container>
         <Container layout="row" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(2)}
             color="quaternary"
             index={2}
-            selected={selectedList[2]}
+            selected={selectedList.includes(2)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[2] ? <Icon color="primary"  name="chevronRight" flip="horizontal"   /> : <Icon color="primary"    name="chevronRight" />}
+                {selectedList.includes(2) ? <Icon color="primary"  name="chevronRight" flip="horizontal"   /> : <Icon color="primary"    name="chevronRight" />}
             </ToggleButton>
-            {selectedList[2] && <Container padding="small" >Hey again</Container>}
+            {selectedList.includes(2) && <Container padding="small" >Hey again</Container>}
         </Container>
         </Accordion>
     )
@@ -135,40 +141,43 @@ export const AccordionTest: React.FC<AccordionProps> = ({reducer = () => {}}) =>
         <Accordion direction="horizontal" as="ul" componentSize="small" color="tertiary">
         <Container layout="column" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(0)}
             color="quaternary"
             index={0}
-            selected={selectedList[0]}
+            selected={selectedList.includes(0)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[0] ? <Icon color="primary" name="chevronRight"  flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
-                {selectedList[0] && <Container padding="small" >Hey again</Container>}
+                {selectedList.includes(0) ? <Icon color="primary" name="chevronRight"  flip="horizontal" /> : <Icon color="primary"  name="chevronRight" />}
+                {selectedList.includes(0) && <Container padding="small" >Hey again</Container>}
             </ToggleButton>
             
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(1)}
             color="quaternary"
             index={1}
-            selected={selectedList[1]}
+            selected={selectedList.includes(1)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[1] ? <Icon color="primary" name="chevronRight" flip="horizontal" /> : <Icon color="primary" name="chevronRight" />}
-                {selectedList[1] && <Container padding="small" >Hey again</Container>}
+                {selectedList.includes(1) ? <Icon color="primary" name="chevronRight" flip="horizontal" /> : <Icon color="primary" name="chevronRight" />}
+                {selectedList.includes(1) && <Container padding="small" >Hey again</Container>}
             </ToggleButton>
             
         </Container>
         <Container layout="column" as="li">
             <ToggleButton
+            aria-expanded={selectedList.includes(2)}
             color="quaternary"
             index={2}
-            selected={selectedList[2]}
+            selected={selectedList.includes(2)}
             handleClick={handleClick}
             >
                 <span>Hey</span>
-                {selectedList[2] ? <Icon color="primary"  name="chevronRight" flip="horizontal"   /> : <Icon color="primary"  name="chevronRight" />}
-                {selectedList[2] && <Container padding="none" fluid={true} >Hey again</Container>}
+                {selectedList.includes(2) ? <Icon color="primary"  name="chevronRight" flip="horizontal"   /> : <Icon color="primary"  name="chevronRight" />}
+                {selectedList.includes(2) && <Container padding="none" fluid={true} >Hey again</Container>}
             </ToggleButton>
         </Container>
         </Accordion>
